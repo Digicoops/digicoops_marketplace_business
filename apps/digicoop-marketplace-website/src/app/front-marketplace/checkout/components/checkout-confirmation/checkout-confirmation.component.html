@@ -1,0 +1,110 @@
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 w-full fade-in">
+    <!-- Left Column: Message -->
+    <div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-8">
+        <div class="flex flex-col items-center justify-center text-center py-12 relative">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[100px] -z-10"></div>
+            <div class="relative mb-6">
+                <div class="size-24 bg-gradient-to-br from-[#1a2e22] to-background-dark rounded-full border-2 border-primary/30 flex items-center justify-center shadow-2xl relative z-10">
+                    <span class="material-symbols-outlined text-6xl text-primary drop-shadow-[0_0_15px_rgba(19,236,106,0.5)]">check_circle</span>
+                </div>
+                <div class="absolute -inset-2 bg-primary/20 rounded-full blur-lg animate-pulse"></div>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-4">Commande Confirmée !</h1>
+            <p class="text-[#9db9a8] text-lg max-w-lg mx-auto leading-relaxed">
+                Merci pour votre commande. Un email récapitulatif a été envoyé à <span class="text-white font-medium">agriculteur@exemple.com</span>.
+            </p>
+
+            <div class="mt-10 w-full max-w-md bg-[#1a2e22]/80 backdrop-blur-sm border border-[#28392f] rounded-3xl p-6 shadow-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                <div class="flex flex-col gap-4 relative z-10">
+                    <div class="flex justify-between items-center pb-4 border-b border-[#28392f]">
+                        <span class="text-[#9db9a8] text-sm">Numéro de commande</span>
+                        <span class="text-white font-mono font-bold tracking-wide">#DGC-8842</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-4 border-b border-[#28392f]">
+                        <span class="text-[#9db9a8] text-sm">Date de commande</span>
+                        <span class="text-white font-medium">12 Oct. 2023</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-[#9db9a8] text-sm">Livraison estimée</span>
+                        <span class="text-primary font-bold">15 - 17 Oct.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 flex flex-col w-full sm:w-auto gap-4">
+                <!-- Using href for now, ideally specific routerLinks -->
+                <button class="w-full sm:w-auto px-10 h-14 bg-primary hover:bg-[#0fd65f] text-background-dark text-lg font-bold rounded-full flex items-center justify-center gap-3 transition-all shadow-[0_0_20px_rgba(19,236,106,0.2)] hover:shadow-[0_0_30px_rgba(19,236,106,0.4)] hover:scale-[1.02] group">
+                    <span>Voir mon tableau de bord</span>
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Column: Receipt Summary -->
+    <div class="lg:col-span-5 xl:col-span-4">
+        <div class="sticky top-28 space-y-6">
+            <div class="bg-[#1a2e22] rounded-3xl p-6 border border-[#28392f] shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+                <div class="flex justify-between items-center mb-6 pb-4 border-b border-[#28392f]">
+                    <h3 class="text-xl font-bold text-white">Récapitulatif</h3>
+                    <span class="bg-primary/20 text-primary text-xs font-bold px-3 py-1 rounded-full border border-primary/20">PAYÉ</span>
+                </div>
+                
+                <!-- Real Cart Items -->
+                <div class="flex flex-col gap-4 max-h-[340px] overflow-y-auto pr-2 custom-scrollbar mb-6 opacity-90">
+                     <div class="flex gap-4 items-start" *ngFor="let item of cartItems()">
+                        <div class="relative w-16 h-16 rounded-xl overflow-hidden bg-white/5 flex-shrink-0 border border-[#28392f]">
+                            <img [src]="item.image" [alt]="item.name" class="w-full h-full object-cover"/>
+                            <span class="absolute bottom-0 right-0 bg-background-dark/80 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-tl">x{{item.quantity}}</span>
+                        </div>
+                        <div class="flex flex-col flex-1">
+                            <h4 class="text-white font-medium text-sm leading-tight">{{item.name}}</h4>
+                            <p class="text-[#9db9a8] text-xs mt-1">{{formatPrice(item.price * item.quantity)}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-4 border-t border-[#28392f] text-sm">
+                    <div class="flex justify-between text-[#9db9a8]">
+                        <span>Sous-total HT</span>
+                        <span>{{subtotal()}}</span>
+                    </div>
+                    <div class="flex justify-between text-[#9db9a8]">
+                        <span>TVA (20%)</span>
+                        <span>{{tax()}}</span>
+                    </div>
+                    <div class="flex justify-between text-[#9db9a8]">
+                        <span>Livraison</span>
+                        <span class="text-primary">Gratuit</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 mt-2 border-t border-[#28392f]">
+                        <span class="text-white font-bold text-lg">Total Payé</span>
+                        <div class="text-right">
+                            <span class="block text-2xl font-black text-white">{{total()}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="w-full mt-6 py-3 border border-[#28392f] hover:bg-[#28392f] text-[#9db9a8] hover:text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all">
+                    <span class="material-symbols-outlined">download</span>
+                    <span>Télécharger la facture</span>
+                </button>
+            </div>
+
+            <div class="bg-[#1a2e22]/50 rounded-2xl p-5 border border-[#28392f] flex gap-4 items-start">
+                <div class="bg-primary/20 p-2 rounded-lg text-primary">
+                    <span class="material-symbols-outlined">help</span>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm">Besoin d'aide ?</h4>
+                    <p class="text-[#9db9a8] text-xs mt-1 leading-relaxed">
+                        Notre service client est disponible pour toute question sur votre commande au <span class="text-white hover:underline cursor-pointer">01 23 45 67 89</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

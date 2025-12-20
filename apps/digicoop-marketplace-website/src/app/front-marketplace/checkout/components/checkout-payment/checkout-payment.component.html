@@ -1,0 +1,109 @@
+
+<!-- Left Column: Payment Details -->
+<div class="flex-1 w-full flex flex-col gap-6 animate-in fade-in slide-in-from-right-4 duration-500">
+    <!-- Payment Methods -->
+    <section class="flex flex-col gap-4">
+    <h2 class="text-white text-xl font-semibold">Mode de paiement</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <!-- Mobile Money Option (Active) -->
+    <label class="cursor-pointer relative flex flex-col gap-3 rounded-2xl border-2 transition hover:bg-secondary/50 p-4 h-full min-h-[140px]"
+        [class.border-primary]="selectedMethod() === 'mobile_money'"
+        [class.bg-secondary-30]="selectedMethod() === 'mobile_money'"
+        [class.border-[#28392f]]="selectedMethod() !== 'mobile_money'"
+        [class.bg-[#28392f]]="selectedMethod() !== 'mobile_money'">
+    <input type="radio" name="payment_method" class="peer sr-only" (change)="selectMethod('mobile_money')" [checked]="selectedMethod() === 'mobile_money'"/>
+    <div class="flex justify-between items-start w-full">
+    <span class="material-symbols-outlined text-3xl shrink-0" [class.text-primary]="selectedMethod() === 'mobile_money'" [class.text-white]="selectedMethod() !== 'mobile_money'">smartphone</span>
+    <div class="size-5 rounded-full border flex items-center justify-center shrink-0" [class.border-primary]="selectedMethod() === 'mobile_money'" [class.border-[#9db9a8]]="selectedMethod() !== 'mobile_money'">
+        <div class="size-2.5 rounded-full bg-primary" *ngIf="selectedMethod() === 'mobile_money'"></div>
+    </div>
+    </div>
+    <div class="flex flex-col gap-1">
+    <p class="text-white font-bold leading-tight">Mobile Money</p>
+    <p class="text-[#9db9a8] text-xs leading-tight">Orange, MTN, Wave</p>
+    </div>
+    </label>
+    
+    <!-- Credit Card Option -->
+    <label class="cursor-pointer relative flex flex-col gap-3 rounded-2xl border-2 transition hover:border-[#9db9a8] hover:bg-surface-dark p-4 h-full min-h-[140px]"
+        [class.border-primary]="selectedMethod() === 'credit_card'"
+        [class.border-[#28392f]]="selectedMethod() !== 'credit_card'"
+        [class.bg-[#28392f]]="selectedMethod() !== 'credit_card'">
+    <input type="radio" name="payment_method" class="peer sr-only" (change)="selectMethod('credit_card')" [checked]="selectedMethod() === 'credit_card'"/>
+    <div class="flex justify-between items-start w-full">
+    <span class="material-symbols-outlined text-3xl shrink-0" [class.text-primary]="selectedMethod() === 'credit_card'" [class.text-white]="selectedMethod() !== 'credit_card'">credit_card</span>
+    <div class="size-5 rounded-full border flex items-center justify-center shrink-0" [class.border-primary]="selectedMethod() === 'credit_card'" [class.border-[#9db9a8]]="selectedMethod() !== 'credit_card'">
+        <div class="size-2.5 rounded-full bg-primary" *ngIf="selectedMethod() === 'credit_card'"></div>
+    </div>
+    </div>
+    <div class="flex flex-col gap-1">
+    <p class="text-white font-bold leading-tight">Carte Bancaire</p>
+    <p class="text-[#9db9a8] text-xs leading-tight">Visa, Mastercard</p>
+    </div>
+    </label>
+    
+    <!-- Cash on Delivery Option -->
+    <label class="cursor-pointer relative flex flex-col gap-3 rounded-2xl border-2 transition hover:border-[#9db9a8] hover:bg-surface-dark p-4 h-full min-h-[140px]"
+        [class.border-primary]="selectedMethod() === 'cash'"
+        [class.border-[#28392f]]="selectedMethod() !== 'cash'"
+        [class.bg-[#28392f]]="selectedMethod() !== 'cash'">
+    <input type="radio" name="payment_method" class="peer sr-only" (change)="selectMethod('cash')" [checked]="selectedMethod() === 'cash'"/>
+    <div class="flex justify-between items-start w-full">
+    <span class="material-symbols-outlined text-3xl shrink-0" [class.text-primary]="selectedMethod() === 'cash'" [class.text-white]="selectedMethod() !== 'cash'">local_shipping</span>
+    <div class="size-5 rounded-full border flex items-center justify-center shrink-0" [class.border-primary]="selectedMethod() === 'cash'" [class.border-[#9db9a8]]="selectedMethod() !== 'cash'">
+         <div class="size-2.5 rounded-full bg-primary" *ngIf="selectedMethod() === 'cash'"></div>
+    </div>
+    </div>
+    <div class="flex flex-col gap-1">
+    <p class="text-white font-bold leading-tight">À la livraison</p>
+    <p class="text-[#9db9a8] text-xs leading-tight">Paiement en espèces</p>
+    </div>
+    </label>
+    </div>
+    </section>
+    <!-- Payment Form (Mobile Money Context) -->
+    <section class="flex flex-col gap-5 rounded-2xl bg-surface-dark border border-[#28392f] p-6">
+    <div class="flex items-center justify-between pb-2 border-b border-[#28392f]">
+    <h3 class="text-lg font-semibold text-white">Détails de la transaction</h3>
+    <div class="flex items-center gap-1 text-primary text-xs font-medium uppercase tracking-wider">
+    <span class="material-symbols-outlined" style="font-size: 16px;">lock</span>
+                                    Sécurisé SSL
+                                </div>
+    </div>
+    <div class="grid gap-5">
+    <div class="flex flex-col gap-2">
+    <label class="text-sm font-medium text-white">Opérateur</label>
+    <div class="relative">
+    <select class="w-full h-12 rounded-xl bg-[#28392f] border-none text-white px-4 focus:ring-2 focus:ring-primary appearance-none cursor-pointer">
+    <option>Orange Money</option>
+    <option>MTN Mobile Money</option>
+    <option>Wave</option>
+    </select>
+    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none material-symbols-outlined">expand_more</span>
+    </div>
+    </div>
+    <div class="flex flex-col gap-2">
+    <label class="text-sm font-medium text-white">Numéro de téléphone</label>
+    <div class="relative group focus-within:text-primary transition-colors">
+    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+    <span class="material-symbols-outlined text-[#9db9a8] group-focus-within:text-primary">call</span>
+    </div>
+    <input class="w-full h-12 rounded-xl bg-[#28392f] border-none text-white pl-12 pr-4 focus:ring-2 focus:ring-primary placeholder:text-[#9db9a8]/50" placeholder="Ex: 07 00 00 00 00" type="tel"/>
+    </div>
+    </div>
+    <div class="flex items-center gap-3 mt-2">
+    <input class="rounded border-none bg-[#28392f] text-primary focus:ring-primary size-5" id="save-info" type="checkbox"/>
+    <label class="text-sm text-[#9db9a8] cursor-pointer select-none" for="save-info">Sauvegarder ce numéro pour mes prochaines commandes</label>
+    </div>
+    </div>
+    </section>
+    <!-- Navigation Buttons -->
+    <div class="flex items-center justify-between mt-4">
+    <!-- Le retour au panier est géré dans le CheckoutComponent principal ou ici si on ajoute un Output 'back' -->
+    
+    <!-- Mobile CTA shown here only on small screens, hidden on large -->
+    <button class="lg:hidden flex h-12 w-full items-center justify-center rounded-full bg-primary px-8 text-background-dark text-base font-bold shadow-lg shadow-primary/20">
+                                Payer Maintenant
+                            </button>
+    </div>
+    </div>

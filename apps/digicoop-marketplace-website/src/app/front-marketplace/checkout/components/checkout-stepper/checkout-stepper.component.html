@@ -1,0 +1,42 @@
+<div class="flex flex-col gap-6">
+    <div class="flex items-center gap-2 text-sm font-medium">
+      <!-- Ce lien pourrait être un bouton ou un routerLink géré par le parent si besoin, 
+           mais ici on garde le lien simple "Retour au panier" s'il est utilisé en haut de page -->
+    </div>
+    
+    <div class="flex items-center w-full justify-between relative">
+      <!-- Progress Line Background -->
+      <div class="absolute left-0 top-1/2 w-full h-1 bg-[#28392f] -z-10 rounded-full"></div>
+      
+      <!-- Progress Line Active -->
+      <div class="absolute left-0 top-1/2 h-1 bg-gradient-to-r from-primary to-secondary -z-10 rounded-full transition-all duration-500"
+           [style.width]="currentStep() === 1 ? '33%' : (currentStep() === 2 ? '66%' : '100%')"></div>
+      
+      <!-- Step 1 -->
+      <div class="flex flex-col items-center gap-2" [class.opacity-50]="currentStep() < 1">
+        <div class="size-10 rounded-full flex items-center justify-center font-bold border-4 border-background-dark transition-all duration-300"
+             [ngClass]="currentStep() >= 1 ? 'bg-primary text-background-dark shadow-[0_0_15px_rgba(19,236,106,0.4)]' : 'bg-[#1a2e22] border-[#28392f] text-[#9db9a8]'">
+          1
+        </div>
+        <span class="font-bold text-sm" [ngClass]="currentStep() >= 1 ? 'text-white' : 'text-[#9db9a8] font-medium'">Informations</span>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="flex flex-col items-center gap-2" [class.opacity-50]="currentStep() < 2">
+        <div class="size-10 rounded-full flex items-center justify-center font-bold border-4 border-background-dark transition-all duration-300"
+             [ngClass]="currentStep() >= 2 ? 'bg-primary text-background-dark shadow-[0_0_15px_rgba(19,236,106,0.4)]' : 'bg-[#1a2e22] border-[#28392f] text-[#9db9a8]'">
+          2
+        </div>
+        <span class="font-bold text-sm" [ngClass]="currentStep() >= 2 ? 'text-white' : 'text-[#9db9a8] font-medium'">Paiement</span>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="flex flex-col items-center gap-2" [class.opacity-50]="currentStep() < 3">
+        <div class="size-10 rounded-full flex items-center justify-center font-bold border-4 border-background-dark transition-all duration-300"
+             [ngClass]="currentStep() >= 3 ? 'bg-primary text-background-dark shadow-[0_0_15px_rgba(19,236,106,0.4)]' : 'bg-[#1a2e22] border-[#28392f] text-[#9db9a8]'">
+          3
+        </div>
+        <span class="font-bold text-sm" [ngClass]="currentStep() >= 3 ? 'text-white' : 'text-[#9db9a8] font-medium'">Confirmation</span>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,110 @@
+<header class="sticky top-0 z-50 w-full border-b border-[#28392f] bg-background-dark/95 backdrop-blur-md">
+  <div class="flex items-center justify-between px-6 py-4 max-w-[1440px] mx-auto gap-4">
+    <div class="flex items-center gap-3 cursor-pointer" routerLink="/">
+      <div class="size-10 bg-primary rounded-full flex items-center justify-center text-background-dark">
+        <span class="material-symbols-outlined text-2xl">agriculture</span>
+      </div>
+      <h1 class="text-white text-xl font-bold tracking-tight hidden sm:block">DIGICOOPS</h1>
+    </div>
+    <div class="hidden md:flex flex-1 max-w-lg mx-8">
+      <div class="relative w-full text-gray-400 focus-within:text-primary">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <span class="material-symbols-outlined">search</span>
+        </div>
+        <input
+          class="block w-full rounded-full border-none bg-[#28392f] py-2.5 pl-10 pr-4 text-white placeholder-gray-400 focus:ring-2 focus:ring-primary sm:text-sm"
+          placeholder="Rechercher produits, marques, catégories..." type="text" />
+      </div>
+    </div>
+    <div class="flex items-center gap-6">
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-300">
+        <a class="hover:text-primary transition-colors cursor-pointer" routerLink="/">Accueil</a>
+        <div class="relative group">
+          <a class="text-primary cursor-pointer flex items-center gap-1" routerLink="/shop">
+            Boutique
+            <span class="material-symbols-outlined text-xs">expand_more</span>
+          </a>
+          <div
+            class="absolute top-full left-0 mt-4 w-48 bg-surface-dark border border-[#28392f] rounded-sm shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <a routerLink="/boutique" class="block px-4 py-3 text-left text-white hover:text-primary transition-colors">
+              Notre univers
+            </a>
+            <a routerLink="/shop" class="block px-4 py-3 text-left text-white hover:text-primary transition-colors">
+              Produits Agricoles
+
+            </a>
+            <a routerLink="/shop" class="block px-4 py-3 text-left text-white hover:text-primary transition-colors">
+              Matériels Agricoles
+
+            </a>
+            <a routerLink="/shop" class="block px-4 py-3 text-left text-white hover:text-primary transition-colors">
+              Services Experts
+            </a>
+          </div>
+        </div>
+        <div class="relative group">
+          <a class="text-gray-300 hover:text-primary transition-colors cursor-pointer flex items-center gap-1"
+            routerLink="/faq">
+            Centre d'aide
+            <span class="material-symbols-outlined text-xs">expand_more</span>
+          </a>
+          <div
+            class="absolute top-full left-0 mt-4 w-48 bg-surface-dark border border-[#28392f] rounded-sm shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <a routerLink="/faq" class="block px-4 py-3 text-left text-white hover:text-primary transition-colors">
+              FAQ
+            </a>
+            <a routerLink="/contact" class="block px-4 py-3 text-left text-white hover:text-primary transition-colors">
+              Contact
+            </a>
+          </div>
+        </div>
+        <a class="hover:text-primary transition-colors cursor-pointer" routerLink="/about">À propos</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <!-- Currency Switcher -->
+        <div class="relative group">
+          <button
+            class="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#28392f] hover:bg-[#32473b] transition-colors text-white">
+            <span class="material-symbols-outlined text-primary text-lg">currency_exchange</span>
+            <span class="font-bold">{{currentCurrency.symbol}}</span>
+            <span class="text-xs text-gray-400">{{currentCurrency.code}}</span>
+            <span class="material-symbols-outlined text-xs text-gray-400">expand_more</span>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div
+            class="absolute right-0 mt-2 w-52 bg-surface-dark rounded-xl shadow-2xl border border-[#28392f] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden z-50">
+            <div class="py-2">
+              <button *ngFor="let curr of currencies" (click)="changeCurrency(curr.code)"
+                [class.bg-primary/10]="curr.code === currentCurrency.code"
+                class="w-full px-4 py-3 hover:bg-primary/5 transition-colors flex items-center justify-between text-left group/item">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">{{curr.symbol}}</span>
+                  <div>
+                    <div class="text-white font-medium">{{curr.name}}</div>
+                    <div class="text-xs text-gray-400">{{curr.code}}</div>
+                  </div>
+                </div>
+                <span *ngIf="curr.code === currentCurrency.code"
+                  class="material-symbols-outlined text-primary text-lg">check_circle</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button aria-label="Panier" class="relative p-2 text-gray-300 hover:text-white transition-colors"
+          routerLink="/cart">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span *ngIf="cartCount() > 0"
+            class="absolute top-1 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-background-dark animate-in zoom-in">{{cartCount()}}</span>
+        </button>
+        <button
+          class="flex items-center gap-2 rounded-full bg-[#28392f] py-2 px-4 text-sm font-bold text-white hover:bg-[#32473b] transition-colors"
+          routerLink="/login">
+          <span class="material-symbols-outlined text-[20px]">account_circle</span>
+          <span class="hidden sm:inline">Compte</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

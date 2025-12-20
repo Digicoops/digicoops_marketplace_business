@@ -1,0 +1,159 @@
+    <div class="bg-surface-dark border-b border-[#28392f]">
+      <div class="max-w-[1400px] mx-auto px-4 md:px-10 py-8">
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-2 text-xs md:text-sm text-[#9db9a8]">
+            <a routerLink="/" class="hover:text-primary transition-colors">Accueil</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <span class="text-white font-medium">Boutique</span>
+          </div>
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">Nos Produits</h1>
+              <p class="text-[#9db9a8] mt-2 max-w-2xl">Parcourez notre catalogue complet de semences, engrais, équipements et services agricoles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10 py-8 flex flex-col lg:flex-row gap-8">
+      <aside class="w-full lg:w-[280px] flex-shrink-0 space-y-8">
+        <div class="bg-surface-dark rounded-2xl p-6 border border-[#28392f]">
+          <h3 class="font-bold text-white mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">filter_list</span>
+            Filtres
+          </h3>
+
+          <div class="mb-6">
+            <h4 class="text-sm font-bold text-[#9db9a8] uppercase tracking-wider mb-3">Catégories</h4>
+            <div class="space-y-2">
+              <label *ngFor="let cat of categories" class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" 
+                       [checked]="isCategorySelected(cat.name)" 
+                       (change)="toggleMainCategory(cat.name)" 
+                       class="form-checkbox rounded bg-[#28392f] border-transparent text-primary focus:ring-primary focus:ring-offset-background-dark text-lg" />
+                <span class="text-white group-hover:text-primary transition-colors text-sm">{{cat.name}}</span>
+                <span class="ml-auto text-xs text-[#9db9a8]">{{cat.count}}</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="h-px bg-[#28392f] my-6"></div>
+
+          <!-- Section Sous-catégories -->
+          <div class="mb-6">
+            <h4 class="text-sm font-bold text-[#9db9a8] uppercase tracking-wider mb-3">Sous-catégories</h4>
+            <div class="space-y-2 max-h-48 overflow-y-auto pr-2">
+              <label *ngFor="let sub of subCategories" class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" 
+                       [checked]="isSubCategorySelected(sub)" 
+                       (change)="toggleSubCategory(sub)" 
+                       class="form-checkbox rounded bg-[#28392f] border-transparent text-primary focus:ring-primary focus:ring-offset-background-dark text-lg" />
+                <span class="text-white group-hover:text-primary transition-colors text-sm">{{sub}}</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="h-px bg-[#28392f] my-6"></div>
+
+          <div class="mb-6">
+            <h4 class="text-sm font-bold text-[#9db9a8] uppercase tracking-wider mb-3">Prix</h4>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="bg-[#28392f] rounded-lg px-3 py-2 flex-1">
+                <span class="text-xs text-[#9db9a8] block">Min</span>
+                <span class="text-sm font-bold text-white">{{priceMin}}€</span>
+              </div>
+              <span class="text-[#9db9a8]">-</span>
+              <div class="bg-[#28392f] rounded-lg px-3 py-2 flex-1">
+                <span class="text-xs text-[#9db9a8] block">Max</span>
+                <span class="text-sm font-bold text-white">{{currentPriceValue}}€</span>
+              </div>
+            </div>
+            <input type="range" 
+                   [(ngModel)]="currentPriceValue" 
+                   (input)="onPriceChange($event)" 
+                   [min]="priceMin" 
+                   [max]="priceMax" 
+                   class="w-full h-1 bg-[#28392f] rounded-lg appearance-none cursor-pointer accent-primary" />
+          </div>
+
+          <div class="h-px bg-[#28392f] my-6"></div>
+
+          <div class="mb-6">
+            <h4 class="text-sm font-bold text-[#9db9a8] uppercase tracking-wider mb-3">Disponibilité</h4>
+            <label class="flex items-center justify-between cursor-pointer group">
+              <span class="text-gray-300 text-sm group-hover:text-white">En stock seulement</span>
+              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                <input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer border-[#28392f] checked:right-0 checked:border-primary" 
+                       id="toggle" 
+                       name="toggle" 
+                       type="checkbox"
+                       [(ngModel)]="inStockOnly"
+                       (change)="toggleInStockOnly()"/>
+                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#28392f] cursor-pointer" for="toggle"></label>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br from-brand-dark to-background-dark border border-primary/20">
+          <div class="relative z-10">
+            <p class="text-primary font-bold text-sm mb-1">OFFRE SPÉCIALE</p>
+            <h3 class="text-white font-bold text-xl mb-2">-20% sur les semences</h3>
+            <p class="text-gray-300 text-xs mb-4">Pour toute commande supérieure à 500€ avant le 30 Avril.</p>
+            <button class="text-white text-xs font-bold underline hover:text-primary">Voir les conditions</button>
+          </div>
+          <div class="absolute -bottom-4 -right-4 text-white/5 rotate-[-15deg]">
+            <span class="material-symbols-outlined text-[120px]">potted_plant</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="flex-1">
+        <div class="bg-surface-dark rounded-xl p-4 mb-6 flex flex-col sm:flex-row justify-between items-center gap-4 border border-[#28392f]">
+          <p class="text-[#9db9a8] text-sm">Affichage de <span class="text-white font-bold">{{displayedRange}}</span> sur <span class="text-white font-bold">{{totalItems}}</span> produits</p>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-[#9db9a8] hidden sm:inline">Trier par:</span>
+              <select class="bg-[#28392f] border-none text-white text-sm rounded-lg focus:ring-1 focus:ring-primary py-2 pl-3 pr-8 cursor-pointer"
+                      [(ngModel)]="sortBy"
+                      (change)="onSortChange($event)">
+                <option value="pertinence">Pertinence</option>
+                <option value="prix-croissant">Prix croissant</option>
+                <option value="prix-decroissant">Prix décroissant</option>
+                <option value="nouveautes">Nouveautés</option>
+                <option value="meilleures-ventes">Meilleures ventes</option>
+              </select>
+            </div>
+            <div class="flex bg-[#28392f] rounded-lg p-1 gap-1">
+              <button class="p-1 rounded hover:bg-white/10 text-primary">
+                <span class="material-symbols-outlined text-xl">grid_view</span>
+              </button>
+              <button class="p-1 rounded hover:bg-white/10 text-[#9db9a8]">
+                <span class="material-symbols-outlined text-xl">view_list</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+        </div>
+
+        <div class="mt-10 flex items-center justify-center gap-2">
+          <button (click)="previousPage()" [disabled]="currentPage === 1" class="size-10 flex items-center justify-center rounded-full border border-[#28392f] text-white hover:bg-[#28392f] transition-colors disabled:opacity-50">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button *ngFor="let page of pages" (click)="goToPage(page)" [class.bg-primary]="page === currentPage" [class.text-background-dark]="page === currentPage" class="size-10 flex items-center justify-center rounded-full border border-[#28392f] text-white hover:bg-[#28392f] transition-colors hover:text-primary font-bold">
+            {{page}}
+          </button>
+          <span *ngIf="totalPages > 5 && currentPage < totalPages - 2" class="text-[#9db9a8] px-2">...</span>
+          <button *ngIf="totalPages > 5 && currentPage < totalPages - 2" (click)="goToPage(totalPages)" class="size-10 flex items-center justify-center rounded-full border border-[#28392f] text-white hover:bg-[#28392f] transition-colors hover:text-primary">
+            {{totalPages}}
+          </button>
+          <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="size-10 flex items-center justify-center rounded-full border border-[#28392f] text-white hover:bg-[#28392f] transition-colors disabled:opacity-50">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </div>

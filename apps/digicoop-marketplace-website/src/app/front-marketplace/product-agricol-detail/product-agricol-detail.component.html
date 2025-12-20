@@ -1,0 +1,257 @@
+    <div class="layout-container flex grow flex-col py-6 lg:py-10 px-4 lg:px-20 xl:px-40" *ngIf="product">
+      <!-- Breadcrumbs -->
+      <div class="flex flex-wrap gap-2 items-center mb-6 text-sm">
+        <a routerLink="/" class="text-[#9db9a8] hover:text-primary transition-colors">Accueil</a>
+        <span class="text-[#586b60] material-symbols-outlined text-sm">chevron_right</span>
+        <a routerLink="/shop" class="text-[#9db9a8] hover:text-primary transition-colors">Matériel</a>
+        <span class="text-[#586b60] material-symbols-outlined text-sm">chevron_right</span>
+        <span class="text-white font-medium">{{product.name}}</span>
+      </div>
+
+      <!-- Product Details Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <!-- Left Column: Gallery -->
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-surface-dark border border-[#2a4430] group">
+            <img [src]="selectedImage" alt="{{product.name}}" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+            <div *ngIf="product.isNew" class="absolute top-4 left-4 bg-primary text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Nouveau</div>
+            <button class="absolute bottom-4 right-4 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm transition-all">
+              <span class="material-symbols-outlined">zoom_in</span>
+            </button>
+          </div>
+          <!-- Thumbnails Carousel -->
+          <div *ngIf="product.images && product.images.length > 1" class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+            <button
+              *ngFor="let image of product.images"
+              (click)="selectImage(image)"
+              [class.border-primary]="selectedImage === image"
+              class="relative min-w-[100px] h-[80px] rounded-lg overflow-hidden border-2 border-transparent hover:border-white/50 opacity-70 hover:opacity-100 transition-all">
+              <img [src]="image" alt="{{product.name}}" class="w-full h-full object-cover">
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Info & Actions -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
+          <div>
+            <div class="flex justify-between items-start">
+              <h1 class="text-3xl lg:text-4xl font-bold text-white leading-tight mb-2">{{product.name}}</h1>
+              <button class="text-[#9db9a8] hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+            </div>
+            <p class="text-[#9db9a8] text-sm">Réf: {{product.ref}}</p>
+          </div>
+
+          <!-- Price & Stock -->
+          <div class="p-6 rounded-2xl bg-surface-dark border border-[#2a4430]">
+            <div class="flex items-end gap-2 mb-2">
+              <span class="text-4xl font-bold text-primary">{{convertedPrice()}}</span>
+              <span class="text-xl text-[#9db9a8] font-medium mb-1">HT</span>
+            </div>
+            <p class="text-sm text-[#9db9a8] mb-4">Prix HT</p>
+            <div class="flex items-center gap-2 mb-6">
+              <div class="size-3 rounded-full bg-green-500 animate-pulse"></div>
+              <span class="text-green-400 text-sm font-medium">En stock - Expédition sous 48h</span>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center justify-between p-3 rounded-xl bg-background-dark border border-[#2a4430]">
+                <span class="text-[#9db9a8] text-sm ml-2">Quantité</span>
+                <div class="flex items-center gap-4 bg-[#2a4430] rounded-lg px-2 py-1">
+                  <button (click)="decrement()" class="text-white hover:text-primary p-1"><span class="material-symbols-outlined text-sm">remove</span></button>
+                  <span class="text-white font-bold w-4 text-center">{{quantity()}}</span>
+                  <button (click)="increment()" class="text-white hover:text-primary p-1"><span class="material-symbols-outlined text-sm">add</span></button>
+                </div>
+              </div>
+              <button routerLink="/cart" class="w-full h-14 bg-primary hover:bg-[#0eb550] text-black font-bold text-lg rounded-full flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(19,236,106,0.3)]">
+                <span class="material-symbols-outlined filled">shopping_cart</span>
+                Ajouter au panier
+              </button>
+              <button class="w-full h-12 border border-[#9db9a8] hover:border-primary hover:text-primary text-white font-medium text-base rounded-full flex items-center justify-center gap-2 transition-all">
+                <span class="material-symbols-outlined">request_quote</span>
+                Demander un devis
+              </button>
+            </div>
+          </div>
+
+          <!-- Specs Summary -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-dark/50">
+              <span class="material-symbols-outlined text-primary">speed</span>
+              <div>
+                <p class="text-xs text-[#9db9a8]">Puissance</p>
+                <p class="text-white font-bold">{{getProductSpecs().power || 'N/A'}}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-dark/50">
+              <span class="material-symbols-outlined text-primary">local_gas_station</span>
+              <div>
+                <p class="text-xs text-[#9db9a8]">Réservoir</p>
+                <p class="text-white font-bold">{{getProductSpecs().tank || 'N/A'}}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-dark/50">
+              <span class="material-symbols-outlined text-primary">agriculture</span>
+              <div>
+                <p class="text-xs text-[#9db9a8]">Largeur coupe</p>
+                <p class="text-white font-bold">{{getProductSpecs().width || 'N/A'}}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-dark/50">
+              <span class="material-symbols-outlined text-primary">verified</span>
+              <div>
+                <p class="text-xs text-[#9db9a8]">Garantie</p>
+                <p class="text-white font-bold">{{getProductSpecs().warranty || '2 Ans'}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detailed Info Tabs -->
+      <div class="mt-16 lg:mt-24">
+        <div class="border-b border-[#2a4430] flex gap-8 overflow-x-auto no-scrollbar">
+          <button
+            (click)="setActiveTab('description')"
+            [class.border-primary]="activeTab === 'description'"
+            [class.text-white]="activeTab === 'description'"
+            [class.font-bold]="activeTab === 'description'"
+            class="pb-4 border-b-2 border-transparent text-[#9db9a8] hover:text-white font-medium text-lg whitespace-nowrap transition-colors">
+            Description
+          </button>
+          <button
+            (click)="setActiveTab('caracteristiques')"
+            [class.border-primary]="activeTab === 'caracteristiques'"
+            [class.text-white]="activeTab === 'caracteristiques'"
+            [class.font-bold]="activeTab === 'caracteristiques'"
+            class="pb-4 border-b-2 border-transparent text-[#9db9a8] hover:text-white font-medium text-lg whitespace-nowrap transition-colors">
+            Caractéristiques techniques
+          </button>
+          <button
+            (click)="setActiveTab('avis')"
+            [class.border-primary]="activeTab === 'avis'"
+            [class.text-white]="activeTab === 'avis'"
+            [class.font-bold]="activeTab === 'avis'"
+            class="pb-4 border-b-2 border-transparent text-[#9db9a8] hover:text-white font-medium text-lg whitespace-nowrap transition-colors">
+            Avis clients ({{getProductReviews().length}})
+          </button>
+          <button
+            (click)="setActiveTab('documents')"
+            [class.border-primary]="activeTab === 'documents'"
+            [class.text-white]="activeTab === 'documents'"
+            [class.font-bold]="activeTab === 'documents'"
+            class="pb-4 border-b-2 border-transparent text-[#9db9a8] hover:text-white font-medium text-lg whitespace-nowrap transition-colors">
+            Documents PDF
+          </button>
+        </div>
+
+        <div class="py-8 grid grid-cols-1 lg:grid-cols-3 gap-12 text-[#b0c4b8] leading-relaxed">
+          <div class="lg:col-span-2">
+            <!-- Description Tab -->
+            <div *ngIf="activeTab === 'description'">
+              <p class="mb-4">
+                {{ product.description || 'Ce produit de haute qualité est conçu pour répondre aux exigences des professionnels de l\'agriculture. Fiabilité, durabilité et performance sont au rendez-vous.' }}
+              </p>
+              <p class="mb-4">
+                Équipé des dernières technologies, ce produit offre un confort d'utilisation optimal et une intégration parfaite dans votre exploitation.
+              </p>
+              <ul class="list-disc list-inside space-y-2 mt-6 text-white">
+                <li>Qualité professionnelle certifiée</li>
+                <li>Support technique disponible 7j/7</li>
+                <li>Compatible avec les standards du marché</li>
+              </ul>
+            </div>
+
+            <!-- Caractéristiques Tab -->
+            <div *ngIf="activeTab === 'caracteristiques'">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                  <div class="flex justify-between py-2 border-b border-[#2a4430]">
+                    <span class="text-[#9db9a8]">Référence</span>
+                    <span class="text-white font-medium">{{product.ref}}</span>
+                  </div>
+                  <div class="flex justify-between py-2 border-b border-[#2a4430]">
+                    <span class="text-[#9db9a8]">Catégorie</span>
+                    <span class="text-white font-medium">{{product.category}}</span>
+                  </div>
+                  <div class="flex justify-between py-2 border-b border-[#2a4430]">
+                    <span class="text-[#9db9a8]">Prix HT</span>
+                    <span class="text-white font-medium">{{convertedPrice()}}</span>
+                  </div>
+                  <div class="flex justify-between py-2 border-b border-[#2a4430]">
+                    <span class="text-[#9db9a8]">Prix TTC</span>
+                    <span class="text-white font-medium">Prix avec TVA</span>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex justify-between py-2 border-b border-[#2a4430]">
+                    <span class="text-[#9db9a8]">Garantie</span>
+                    <span class="text-white font-medium">{{getProductSpecs().warranty || '2 Ans'}}</span>
+                  </div>
+                  <div class="flex justify-between py-2 border-b border-[#2a4430]">
+                    <span class="text-[#9db9a8]">Livraison</span>
+                    <span class="text-white font-medium">Sous 48h</span>
+                  </div>
+                  <div class="flex justify-between py-2 border-b border-[#2a4430]">
+                    <span class="text-[#9db9a8]">Stock</span>
+                    <span class="text-white font-medium">{{product.stock || 'Disponible'}}</span>
+                  </div>
+                  <div class="flex justify-between py-2 border-b border-[#2a4430]">
+                    <span class="text-[#9db9a8]">État</span>
+                    <span class="text-white font-medium">{{product.isNew ? 'Nouveau' : 'Occasion'}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Avis Tab -->
+            <div *ngIf="activeTab === 'avis'">
+              <p class="text-white">Avis clients à venir...</p>
+            </div>
+
+            <!-- Documents Tab -->
+            <div *ngIf="activeTab === 'documents'">
+              <p class="text-white">Documents PDF à venir...</p>
+            </div>
+          </div>
+
+          <!-- Trust Box -->
+          <div class="bg-forest rounded-2xl p-6 flex flex-col gap-6 text-white h-fit">
+            <h3 class="font-bold text-xl">Pourquoi choisir DIGICOOPS ?</h3>
+            <div class="flex gap-4 items-start">
+              <div class="bg-primary/20 p-2 rounded-lg text-primary"><span class="material-symbols-outlined">local_shipping</span></div>
+              <div>
+                <h4 class="font-bold">Livraison spécialisée</h4>
+                <p class="text-sm opacity-80 mt-1">Transport par convoi exceptionnel géré par nos soins.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="bg-primary/20 p-2 rounded-lg text-primary"><span class="material-symbols-outlined">engineering</span></div>
+              <div>
+                <h4 class="font-bold">Mise en route incluse</h4>
+                <p class="text-sm opacity-80 mt-1">Un expert technique vous forme sur place pendant une demi-journée.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="bg-primary/20 p-2 rounded-lg text-primary"><span class="material-symbols-outlined">support_agent</span></div>
+              <div>
+                <h4 class="font-bold">Support 24/7</h4>
+                <p class="text-sm opacity-80 mt-1">Assistance prioritaire pendant la saison des récoltes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended Products Section -->
+      <div class="mt-16 lg:mt-20">
+        <app-product-recommendations 
+          [currentProductId]="product.id" 
+          [category]="product.category"
+          [title]="'Vous pourriez avoir besoin de'"
+          [maxProducts]="4">
+        </app-product-recommendations>
+      </div>
+    </div>

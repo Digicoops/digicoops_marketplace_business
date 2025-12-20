@@ -1,0 +1,246 @@
+<!-- Main Content -->
+<main class="layout-container flex grow flex-col w-full max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 py-6">
+  <!-- Breadcrumbs -->
+  <div class="flex flex-wrap gap-2 py-4 mb-2">
+    <a routerLink="/" class="text-[#9db9a8] text-sm hover:text-primary transition-colors">Accueil</a>
+    <span class="text-[#9db9a8] text-sm">/</span>
+    <a routerLink="/services" class="text-[#9db9a8] text-sm hover:text-primary transition-colors">Services</a>
+    <span class="text-[#9db9a8] text-sm">/</span>
+    <span class="text-white text-sm font-medium">{{service.name}}</span>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+    <!-- Left Column: Images & Details -->
+    <div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-8">
+      <!-- Main Image Area -->
+      <div class="relative w-full aspect-video rounded-xl overflow-hidden group">
+        <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" [style.background-image]="'url(' + selectedImage + ')'">
+        </div>
+        <div *ngIf="service.isPopular" class="absolute top-4 left-4 bg-accent-green/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+          Populaire
+        </div>
+      </div>
+
+      <!-- Thumbnails (Simplified) -->
+      <div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+        <div
+          *ngFor="let image of service.images"
+          (click)="selectImage(image)"
+          [class.border-primary]="selectedImage === image"
+          class="shrink-0 w-24 h-24 rounded-lg overflow-hidden border-2 border-transparent hover:border-white/20 cursor-pointer opacity-70 hover:opacity-100 transition-all">
+          <div class="w-full h-full bg-cover bg-center" [style.background-image]="'url(' + image + ')'"></div>
+        </div>
+      </div>
+
+      <!-- Tabbed Details -->
+      <div class="bg-surface-card rounded-xl p-6 md:p-8">
+        <div class="flex flex-wrap gap-4 border-b border-white/10 pb-4 mb-6">
+          <button
+            (click)="setActiveTab('description')"
+            [class.text-primary]="activeTab === 'description'"
+            [class.font-bold]="activeTab === 'description'"
+            [class.border-b-2]="activeTab === 'description'"
+            [class.border-primary]="activeTab === 'description'"
+            class="text-[#9db9a8] font-medium hover:text-white transition-colors pb-4 -mb-4.5 px-2">
+            Description
+          </button>
+          <button
+            (click)="setActiveTab('modalites')"
+            [class.text-primary]="activeTab === 'modalites'"
+            [class.font-bold]="activeTab === 'modalites'"
+            [class.border-b-2]="activeTab === 'modalites'"
+            [class.border-primary]="activeTab === 'modalites'"
+            class="text-[#9db9a8] font-medium hover:text-white transition-colors pb-4 -mb-4.5 px-2">
+            Modalités
+          </button>
+          <button
+            (click)="setActiveTab('caracteristiques')"
+            [class.text-primary]="activeTab === 'caracteristiques'"
+            [class.font-bold]="activeTab === 'caracteristiques'"
+            [class.border-b-2]="activeTab === 'caracteristiques'"
+            [class.border-primary]="activeTab === 'caracteristiques'"
+            class="text-[#9db9a8] font-medium hover:text-white transition-colors pb-4 -mb-4.5 px-2">
+            Caractéristiques Tech
+          </button>
+          <button
+            (click)="setActiveTab('avis')"
+            [class.text-primary]="activeTab === 'avis'"
+            [class.font-bold]="activeTab === 'avis'"
+            [class.border-b-2]="activeTab === 'avis'"
+            [class.border-primary]="activeTab === 'avis'"
+            class="text-[#9db9a8] font-medium hover:text-white transition-colors pb-4 -mb-4.5 px-2">
+            Avis ({{service.reviews}})
+          </button>
+        </div>
+
+        <div class="space-y-6 text-[#d0d6d3] leading-relaxed">
+          <!-- Description Tab -->
+          <div *ngIf="activeTab === 'description'">
+            <h3 class="text-white text-xl font-bold">Un diagnostic complet pour optimiser vos rendements</h3>
+            <p>{{service.description}}</p>
+            <ul class="space-y-3 mt-4">
+              <li *ngFor="let feature of service.features" class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+                <span>{{feature}}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Modalités Tab -->
+          <div *ngIf="activeTab === 'modalites'">
+            <h3 class="text-white text-xl font-bold">Conditions et modalités</h3>
+            <ul class="space-y-3 mt-4">
+              <li *ngFor="let condition of service.conditions" class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary mt-0.5">info</span>
+                <span>{{condition}}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Caractéristiques Tab -->
+          <div *ngIf="activeTab === 'caracteristiques'">
+            <h3 class="text-white text-xl font-bold">Spécifications techniques</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div class="bg-white/5 rounded-lg p-4">
+                <h4 class="text-white font-semibold mb-2">Résolution</h4>
+                <p class="text-[#9db9a8]">5cm/px</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-4">
+                <h4 class="text-white font-semibold mb-2">Technologie</h4>
+                <p class="text-[#9db9a8]">Multispectrale NDVI</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-4">
+                <h4 class="text-white font-semibold mb-2">Délai de livraison</h4>
+                <p class="text-[#9db9a8]">48h après vol</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-4">
+                <h4 class="text-white font-semibold mb-2">Zone de couverture</h4>
+                <p class="text-[#9db9a8]">50km rayon</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Avis Tab -->
+          <div *ngIf="activeTab === 'avis'">
+            <h3 class="text-white text-xl font-bold">Avis clients</h3>
+            <p class="text-[#9db9a8] mt-4">Avis clients à venir...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Provider Profile -->
+      <div class="bg-surface-card rounded-xl p-6 flex flex-col md:flex-row gap-6 items-center md:items-start border border-white/5">
+        <div class="size-20 rounded-full bg-slate-700 overflow-hidden shrink-0">
+          <img alt="Portrait of provider" class="w-full h-full object-cover" [src]="service.provider.avatar">
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-2 mb-1">
+            <h4 class="text-white font-bold text-lg">{{service.provider.name}}</h4>
+            <span *ngIf="service.provider.isVerified" class="material-symbols-outlined text-blue-400 text-[18px]" title="Vérifié">verified</span>
+          </div>
+          <p class="text-[#9db9a8] text-sm mb-3">{{service.provider.experience}}</p>
+          <div class="flex items-center justify-center md:justify-start gap-4 text-xs font-medium text-white/60">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span> {{service.provider.location}}</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> {{service.provider.responseTime}}</span>
+          </div>
+        </div>
+        <button class="shrink-0 px-6 h-10 rounded-full border border-white/20 hover:bg-white/5 text-white font-medium text-sm transition-colors">
+          Contacter
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Column: Sticky Booking Card -->
+    <div class="lg:col-span-5 xl:col-span-4 relative">
+      <div class="sticky top-24 flex flex-col gap-6">
+        <!-- Title Section -->
+        <div class="flex flex-col gap-2">
+          <h1 class="text-white text-3xl md:text-4xl font-black leading-tight tracking-tight">{{service.name}}</h1>
+          <div class="flex items-center gap-2 mt-2">
+            <div class="flex text-yellow-400">
+              <span *ngFor="let star of getStars()" class="material-symbols-outlined text-[20px] fill-current">star</span>
+            </div>
+            <span class="text-white font-bold">{{service.rating}}</span>
+            <span class="text-[#9db9a8] text-sm">({{service.reviews}} avis)</span>
+          </div>
+        </div>
+
+        <!-- Booking Card -->
+        <div class="bg-accent-green rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden group">
+          <!-- Decorative gradient blob -->
+          <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col gap-6">
+            <!-- Price Header -->
+            <div class="flex items-end gap-2 pb-6 border-b border-white/10">
+              <span class="text-5xl font-display font-bold text-white">{{convertedPrice()}}</span>
+              <span class="text-white/80 font-medium text-lg mb-1">/ hectare</span>
+            </div>
+
+            <!-- Inputs -->
+            <div class="space-y-4">
+              <div>
+                <label class="block text-white/90 text-sm font-bold mb-2 ml-1">Surface à traiter (ha)</label>
+                <div class="flex items-center bg-black/20 rounded-xl px-4 h-12 border border-white/10 focus-within:border-primary transition-colors">
+                  <span class="material-symbols-outlined text-white/50">aspect_ratio</span>
+                  <input [(ngModel)]="surface" class="bg-transparent border-none text-white placeholder-white/40 focus:ring-0 w-full ml-2 font-medium" placeholder="Ex: 50" type="number"/>
+                </div>
+              </div>
+              <div>
+                <label class="block text-white/90 text-sm font-bold mb-2 ml-1">Date d'intervention souhaitée</label>
+                <div class="flex items-center bg-black/20 rounded-xl px-4 h-12 border border-white/10 focus-within:border-primary transition-colors cursor-pointer">
+                  <span class="material-symbols-outlined text-white/50">calendar_month</span>
+                  <input [(ngModel)]="selectedDate" class="bg-transparent border-none text-white placeholder-white/40 focus:ring-0 w-full ml-2 font-medium cursor-pointer" placeholder="Sélectionner une date" type="text"/>
+                  <span class="material-symbols-outlined text-white/50">expand_more</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Preview -->
+            <div class="flex justify-between items-center text-sm font-medium text-white/80 py-2">
+              <span>Total estimé (HT)</span>
+              <span class="text-white text-lg font-bold">{{convertedTotalPrice()}}</span>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col gap-3 mt-2">
+              <button class="w-full bg-primary hover:bg-primary-dark text-[#102217] font-bold text-lg h-14 rounded-full transition-all shadow-[0_0_20px_rgba(19,236,106,0.3)] hover:shadow-[0_0_30px_rgba(19,236,106,0.5)] flex items-center justify-center gap-2">
+                <span>Réserver maintenant</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+              <button class="w-full bg-transparent border border-white/20 hover:bg-white/10 text-white font-bold text-sm h-12 rounded-full transition-colors">
+                Demander un devis
+              </button>
+            </div>
+
+            <!-- Reassurance -->
+            <div class="flex items-center justify-center gap-4 pt-4 text-[11px] font-medium text-white/60 uppercase tracking-wide">
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">lock</span> Paiement sécurisé</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">workspace_premium</span> Service Garanti</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Info Cards -->
+        <div class="bg-surface-card rounded-xl p-5 border border-white/5">
+          <h4 class="text-white font-bold mb-3 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">local_shipping</span>
+            Conditions
+          </h4>
+          <ul class="text-sm text-[#9db9a8] space-y-2">
+            <li *ngFor="let condition of service.conditions">• {{condition}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recommended Services Section -->
+  <div class="mt-20 mb-10">
+    <app-product-recommendations 
+      [currentProductId]="service.id" 
+      [category]="service.category"
+      [title]="'Vous pourriez avoir besoin de'"
+      [maxProducts]="4">
+    </app-product-recommendations>
+  </div>
+</main>

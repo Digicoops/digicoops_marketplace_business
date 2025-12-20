@@ -1,0 +1,240 @@
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 px-4 min-h-[85vh] flex items-center justify-center overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#102217]/80 via-[#102217]/60 to-[#102217] z-10"></div>
+        <div class="w-full h-full bg-cover bg-center"
+            data-alt="High-tech tractor in a modern agricultural field at sunset"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCwCXJz8s9EBN-XSBuuRXcOZuL5tCdsA5DIHtN_qqaID7zqaHf2WJKSI0LmjTlCv5BYylMmOvCIW5hKLFzGeGm2yn4XkThRFEAbm_QCsFQLeQBy7KkYMwRZyLZVVwazbpalNTqoPlT3EBz4snBbN_4KgoQEkHedXpVQ9eWty1o_VoYbuLtTSF3y7dmmBpYtZSA4fQfNJXEJxPHU3yRvEbUNEml7pRiwimivgw-29CGMgwT7LP4tMDPXw4U65-9pdXqhGhWhrYkZ2I4');">
+        </div>
+    </div>
+    <div class="relative z-10 max-w-6xl mx-auto w-full text-center flex flex-col items-center gap-8">
+        <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm mb-4">
+            <span class="size-2 rounded-full bg-primary animate-pulse"></span>
+            <span class="text-primary text-sm font-bold tracking-wide uppercase">Innovons ensemble</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight">
+            L'Agriculture <br />
+            <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-white animate-gradient bg-300%">de
+                Demain</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
+            DIGICOOPS réinvente la chaîne de valeur agricole. Nous connectons les producteurs aux dernières technologies
+            pour
+            une agriculture plus rentable, durable et intelligente.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+            <button
+                class="px-8 py-4 bg-primary hover:bg-primary/90 text-[#102217] rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-[0_0_20px_rgba(19,236,106,0.4)] flex items-center gap-2">
+                Explorer le catalogue
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+            <button
+                class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/10 backdrop-blur-sm rounded-full font-bold text-lg transition-all flex items-center gap-2">
+                <span class="material-symbols-outlined">play_circle</span>
+                Notre histoire
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Strip -->
+<div class="relative z-20 -mt-10 max-w-5xl mx-auto px-4">
+    <div class="bg-surface-dark/80 backdrop-blur-md border border-[#28392f] rounded-2xl p-8 shadow-2xl">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/5">
+            <div *ngFor="let stat of stats()" class="flex flex-col items-center text-center gap-1">
+                <span class="text-4xl font-black text-white">{{stat.value}}</span>
+                <span class="text-primary text-sm font-medium uppercase tracking-wider">{{stat.label}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vision & Mission Section -->
+<section class="py-24 px-4 bg-background-dark relative overflow-hidden">
+    <!-- Decorative blobs -->
+    <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none">
+    </div>
+    <div
+        class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none">
+    </div>
+    <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h2 class="text-primary font-bold text-sm tracking-widest uppercase mb-2">Notre Mission</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+                    Cultiver l'avenir avec <br /><span class="text-secondary">innovation &amp; passion.</span>
+                </h3>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Chez DIGICOOPS, nous croyons que la technologie ne doit pas remplacer l'agriculteur, mais
+                    l'augmenter. Notre
+                    plateforme est conçue pour simplifier les approvisionnements, optimiser les coûts et donner accès
+                    aux meilleures
+                    innovations du marché.
+                </p>
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-secondary/20 rounded-xl text-primary">
+                            <span class="material-symbols-outlined">eco</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg">Durabilité Garantie</h4>
+                            <p class="text-gray-400 text-sm">Des solutions qui respectent la terre et maximisent les
+                                rendements sur le
+                                long terme.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-secondary/20 rounded-xl text-primary">
+                            <span class="material-symbols-outlined">hub</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg">Connectivité Totale</h4>
+                            <p class="text-gray-400 text-sm">Une plateforme unifiée pour gérer vos achats, vos ventes et
+                                votre
+                                matériel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4 mt-8">
+                        <div class="bg-surface-dark p-2 rounded-2xl">
+                            <div class="h-64 w-full bg-cover bg-center rounded-xl grayscale hover:grayscale-0 transition-all duration-500"
+                                data-alt="Farmer checking crops with tablet"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-Z6AONaLFkXdht0-an7mtvkGf8CDLWG1J7Jk8vadQoorncprTMGXheFOXf6QlujH_J20FaGu-seVcO7ZgoXJgywvOUzDHolK3tD_Ebacs-eNAK5fItHF12myZmr0znsnp9bVjJpVncjbE4AALkH3_vr6M6zdc8gNigIkkPkKzXjaoeineEfVYHIvmoymS09U49FcM831MnOnQYaTd9enzeTCbJk44gZcdf9n03GH9Qy0iqSiIT4QSvc1LH8AsFE7oSuFyoVXlhpE')">
+                            </div>
+                        </div>
+                        <div class="bg-surface-dark p-6 rounded-2xl border border-white/5">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-2">monitoring</span>
+                            <p class="text-white font-bold">Analyse prédictive</p>
+                            <p class="text-xs text-gray-500">Données en temps réel pour des décisions éclairées.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-surface-dark p-6 rounded-2xl border border-white/5">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-2">local_shipping</span>
+                            <p class="text-white font-bold">Logistique optimisée</p>
+                            <p class="text-xs text-gray-500">Livraison rapide partout en France.</p>
+                        </div>
+                        <div class="bg-surface-dark p-2 rounded-2xl">
+                            <div class="h-64 w-full bg-cover bg-center rounded-xl grayscale hover:grayscale-0 transition-all duration-500"
+                                data-alt="Close up of modern drone for agriculture"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBH0g-VURjmvX5OnOAYjF5JcNzejHmxiLGViykXgHbNMPsXCK9ZS7a2fgtRvGlw34fumdhZSaug9Is_eHE9hVhvKy8vLKJTv6d_0etYHULAMBCPC7lMMKT-2bvNS3ttRzMers3UeI7iUUdGbgX9MfS-cJ14g1eUckoBRYfTTiJ-EGf_88vxJstBF-S8F9SSCfir0AcWVpJZRR6xuOJS_GnNmc748Xea06fIKI8u8Ex1pDO4NvK88R7cLNuO0pq3e1kw_mXbNQE8150')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="py-20 bg-secondary/10 border-y border-white/5">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Nos Valeurs Fondamentales</h2>
+            <p class="text-gray-400">Nous construisons plus qu'une plateforme e-commerce; nous bâtissons une communauté
+                basée
+                sur la confiance et le progrès.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div *ngFor="let val of values()"
+                class="group relative bg-[#1a2c20] p-1 rounded-[2rem] hover:-translate-y-2 transition-transform duration-300">
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity">
+                </div>
+                <div
+                    class="relative bg-[#1a2c20] p-8 rounded-[1.8rem] h-full flex flex-col items-center text-center border border-white/5">
+                    <div
+                        class="size-16 rounded-full bg-background-dark border border-white/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-colors text-white">
+                        <span class="material-symbols-outlined text-3xl">{{val.icon}}</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">{{val.title}}</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">{{val.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-24 px-4 bg-background-dark">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-2">L'Équipe DIGICOOPS</h2>
+                <p class="text-gray-400">Des experts passionnés par la tech et l'agriculture.</p>
+            </div>
+            <button class="text-primary hover:text-white font-medium flex items-center gap-2 transition-colors">
+                Rejoindre l'équipe <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div *ngFor="let member of team()" class="group flex flex-col items-center">
+                <div
+                    class="relative w-40 h-40 mb-4 rounded-full overflow-hidden border-2 border-secondary group-hover:border-primary transition-colors">
+                    <img [src]="member.image" [alt]="member.name"
+                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                </div>
+                <h4 class="text-white font-bold text-lg">{{member.name}}</h4>
+                <p class="text-primary text-sm font-medium mb-4">{{member.role}}</p>
+                <div class="flex gap-3">
+                    <a *ngIf="member.socials?.facebook" [href]="member.socials?.facebook"
+                        class="size-8 rounded-full bg-surface-dark border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-background-dark transition-colors">
+                        <svg class="size-4 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                        </svg>
+                    </a>
+                    <a *ngIf="member.socials?.linkedin" [href]="member.socials?.linkedin"
+                        class="size-8 rounded-full bg-surface-dark border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-background-dark transition-colors">
+                        <svg class="size-4 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h5.124v-5.021c0-2.095.889-3.416 2.583-3.033 1.25.282 1.956 1.487 1.956 2.943v5.111h5.021v-7.161c0-3.376-1.588-5.323-4.48-5.067-1.875.148-3.324 1.34-3.792 2.766h-.569v-6.539z" />
+                        </svg>
+                    </a>
+                    <a *ngIf="member.socials?.instagram" [href]="member.socials?.instagram"
+                        class="size-8 rounded-full bg-surface-dark border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-background-dark transition-colors">
+                        <svg class="size-4 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-24 px-4">
+    <div class="max-w-5xl mx-auto relative rounded-[3rem] overflow-hidden bg-secondary">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1605000797499-95a059c00b28?q=80&amp;w=2072&amp;auto=format&amp;fit=crop')] bg-cover bg-center mix-blend-overlay opacity-30"
+            data-alt="Abstract green field texture"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-secondary to-[#1a2c20] opacity-90"></div>
+        <div class="relative z-10 py-20 px-8 text-center flex flex-col items-center gap-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-white max-w-2xl leading-tight">
+                Prêt à moderniser votre exploitation ?
+            </h2>
+            <p class="text-white/80 text-lg max-w-xl">
+                Rejoignez plus de 5000 agriculteurs qui font confiance à DIGICOOPS pour leurs équipements et services.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                <button
+                    class="bg-primary hover:bg-[#0fd25e] text-[#102217] text-lg font-bold py-4 px-10 rounded-full transition-all hover:scale-105 shadow-xl">
+                    Créer un compte gratuit
+                </button>
+                <button
+                    class="bg-white hover:bg-gray-100 text-secondary text-lg font-bold py-4 px-10 rounded-full transition-all">
+                    Contacter un expert
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

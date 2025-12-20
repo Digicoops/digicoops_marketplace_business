@@ -1,0 +1,64 @@
+    <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold tracking-tight text-white md:text-4xl">Votre Panier</h1>
+        <p class="mt-2 text-gray-400">Vérifiez vos articles avant de passer commande.</p>
+      </div>
+
+      <div class="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-start">
+        <!-- Cart Items -->
+        <div class="lg:col-span-8">
+          
+          <div *ngIf="cartItems().length > 0; else emptyCart" class="flex flex-col gap-6">
+            <!-- Header Row DO NOT SHOW ON MOBILE -->
+            <div class="hidden sm:grid grid-cols-12 gap-4 border-b border-[#28392f] pb-4 text-sm font-medium text-gray-400 uppercase tracking-wider">
+              <div class="col-span-6">Produit</div>
+              <div class="col-span-6 text-right px-8">Actions</div>
+            </div>
+
+            <!-- Items Loop -->
+            <app-cart-item 
+              *ngFor="let item of cartItems()" 
+              [item]="item"
+              (quantityChange)="updateQuantity(item.id, $event)"
+              (remove)="removeItem(item.id)">
+            </app-cart-item>
+          </div>
+          
+          <!-- Empty Cart State -->
+          <ng-template #emptyCart>
+            <div class="text-center py-16 bg-surface-dark rounded-2xl border border-[#28392f]">
+              <span class="material-symbols-outlined text-6xl text-gray-600 mb-4">shopping_cart_off</span>
+              <h3 class="text-xl font-bold text-white mb-2">Votre panier est vide</h3>
+              <p class="text-gray-400 mb-6">Découvrez nos produits et commencez vos achats.</p>
+              <a routerLink="/shop" class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-base font-bold text-black hover:bg-primary-hover transition-all">
+                Aller à la boutique
+              </a>
+            </div>
+          </ng-template>
+
+          <div class="mt-6" *ngIf="cartItems().length > 0">
+            <a routerLink="/shop" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+              <span class="material-symbols-outlined text-lg">arrow_back</span>
+              Continuer vos achats
+            </a>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="mt-16 lg:col-span-4 lg:mt-0" *ngIf="cartItems().length > 0">
+          <app-cart-summary 
+            [subtotal]="subtotal()" 
+            (checkout)="proceedToCheckout()">
+          </app-cart-summary>
+        </div>
+      </div>
+
+      <!-- Recommendations Section -->
+      <div class="mt-20">
+        <app-product-recommendations 
+          [category]="'produit agricole'"
+          [title]="'Vous pourriez aussi aimer'"
+          [maxProducts]="4">
+        </app-product-recommendations>
+      </div>
+    </div>

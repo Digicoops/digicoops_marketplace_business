@@ -1,0 +1,29 @@
+.text-glow {
+    text-shadow: 0 0 10px rgba(19, 236, 106, 0.3);
+}
+
+details > summary {
+    list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary ~ * {
+    animation: sweep .3s ease-in-out;
+}
+
+@keyframes sweep {
+    0%    {opacity: 0; transform: translateY(-10px)}
+    100%  {opacity: 1; transform: translateY(0)}
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

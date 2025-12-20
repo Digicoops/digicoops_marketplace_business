@@ -1,0 +1,43 @@
+<div class="sticky top-28 rounded-3xl bg-surface-dark p-6 shadow-xl border border-[#28392f]">
+  <h2 class="text-xl font-bold text-white mb-6">Résumé de la commande</h2>
+  
+  <!-- Promo Code -->
+  <div class="mb-6">
+    <div class="flex rounded-full bg-[#111814] border border-[#28392f] p-1">
+      <input type="text" placeholder="Code Promo" class="w-full bg-transparent border-none text-sm text-white placeholder-gray-500 focus:ring-0 px-4 focus:outline-none" />
+      <button class="rounded-full bg-[#28392f] px-4 py-2 text-xs font-bold text-white hover:bg-secondary transition-colors">APPLIQUER</button>
+    </div>
+  </div>
+
+  <!-- Details -->
+  <dl class="space-y-4 text-sm border-t border-[#28392f] pt-4">
+    <div class="flex items-center justify-between">
+      <dt class="text-gray-400">Sous-total</dt>
+      <dd class="font-medium text-white">{{ convertedSubtotal() }}</dd>
+    </div>
+    <div class="flex items-center justify-between">
+      <dt class="text-gray-400">Livraison</dt>
+      <dd class="font-medium text-primary">Calculée à l'étape suivante</dd>
+    </div>
+    <div class="flex items-center justify-between">
+      <dt class="text-gray-400">TVA ({{ taxRate() | percent }})</dt>
+      <dd class="font-medium text-white">{{ convertedTax() }}</dd>
+    </div>
+    <div class="flex items-center justify-between border-t border-[#28392f] pt-4">
+      <dt class="text-base font-bold text-white">Total TTC</dt>
+      <dd class="text-2xl font-bold text-primary">{{ convertedTotal() }}</dd>
+    </div>
+  </dl>
+
+  <!-- Checkout Button -->
+  <button (click)="onCheckout()" class="mt-8 w-full rounded-full bg-primary px-6 py-4 text-base font-bold text-black shadow-lg shadow-primary/20 hover:bg-primary-hover transition-all">
+    COMMANDER
+  </button>
+  
+  <!-- Reassurance Icons -->
+  <div class="mt-4 flex justify-center gap-4 text-gray-500">
+    <span class="material-symbols-outlined" title="Paiement Sécurisé">lock</span>
+    <span class="material-symbols-outlined" title="Livraison Rapide">local_shipping</span>
+    <span class="material-symbols-outlined" title="Satisfait ou Remboursé">verified</span>
+  </div>
+</div>

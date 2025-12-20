@@ -1,0 +1,36 @@
+/* Header Component Styles */
+header {
+  /* Add custom styles here if needed */
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Search input focus styles */
+input {
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Navigation hover effects */
+nav a {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #13ec6a;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
+}

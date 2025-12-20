@@ -33,6 +33,5 @@
       "style": "scss",
       "unitTestRunner": "none"
     }
-  },
-  "defaultProject": "digicoop-monorepo"
+  }
 }

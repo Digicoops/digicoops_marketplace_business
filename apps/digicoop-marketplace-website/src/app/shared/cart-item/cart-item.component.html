@@ -1,0 +1,39 @@
+<div class="relative overflow-hidden rounded-2xl bg-surface-dark p-4 sm:p-6 transition-all hover:bg-[#232f28] border border-transparent hover:border-[#28392f]">
+  <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+    <!-- Image -->
+    <div class="shrink-0">
+      <div class="size-24 rounded-xl bg-cover bg-center bg-no-repeat shadow-md border border-[#28392f]" [style.background-image]="'url(' + item().image + ')'"></div>
+    </div>
+    
+    <!-- Details -->
+    <div class="flex flex-1 flex-col">
+      <div>
+        <h3 class="text-lg font-bold text-white">{{ item().name }}</h3>
+        <p class="mt-1 text-sm text-primary" *ngIf="item().inStock">En stock</p>
+        <p class="mt-1 text-sm text-red-400" *ngIf="!item().inStock">Rupture de stock</p>
+        <p class="text-xs text-gray-500 mt-0.5">Réf: {{ item().ref }}</p>
+      </div>
+    </div>
+
+    <!-- Actions & Price -->
+    <div class="flex flex-col sm:flex-row items-center gap-8 ml-auto w-full sm:w-auto mt-4 sm:mt-0 justify-between sm:justify-end">
+      <!-- Quantity Controls -->
+      <div class="flex items-center rounded-full bg-[#111814] border border-[#28392f]">
+        <button (click)="decrement()" class="flex size-9 items-center justify-center rounded-l-full text-gray-400 hover:text-white hover:bg-secondary/50 transition disabled:opacity-50" [disabled]="item().quantity <= 1">-</button>
+        <span class="w-10 text-center text-sm font-medium text-white">{{ item().quantity }}</span>
+        <button (click)="increment()" class="flex size-9 items-center justify-center rounded-r-full text-gray-400 hover:text-white hover:bg-secondary/50 transition">+</button>
+      </div>
+
+      <!-- Price -->
+      <div class="w-24 text-right">
+        <p class="text-lg font-bold text-white">{{ convertedTotal() }}</p>
+        <p class="text-xs text-gray-500">{{ convertedPrice() }} / u</p>
+      </div>
+
+      <!-- Delete Button -->
+      <button (click)="onRemove()" class="text-gray-500 hover:text-red-400 transition-colors p-2 rounded-full hover:bg-red-400/10">
+        <span class="material-symbols-outlined">delete</span>
+      </button>
+    </div>
+  </div>
+</div>
