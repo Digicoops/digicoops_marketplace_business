@@ -1,0 +1,269 @@
+<main class="flex-grow w-full max-w-5xl mx-auto px-6 lg:px-10 py-8 print:px-0 print:py-0 print:max-w-none">
+    <!-- Action Bar & Breadcrumb -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 print:hidden">
+        <div>
+            <nav class="flex text-sm text-[#9db9a8] mb-1">
+                <a class="hover:text-white transition-colors" routerLink="/dashboard">Accueil</a>
+                <span class="mx-2">/</span>
+                <a class="hover:text-white transition-colors" routerLink="/dashboard">Commandes</a>
+                <span class="mx-2">/</span>
+                <span class="text-white">#INV-2023-089</span>
+            </nav>
+            <h1 class="text-white text-3xl font-bold tracking-tight">Détail de la facture</h1>
+        </div>
+        <div class="flex gap-3">
+            <button
+                class="flex items-center gap-2 bg-[#28392f] hover:bg-[#3b5445] text-white px-5 py-2.5 rounded-full font-medium transition-colors border border-[#3b5445]"
+                (click)="printInvoice()">
+                <span class="material-symbols-outlined text-lg">print</span>
+                <span>Imprimer</span>
+            </button>
+            <button
+                class="flex items-center gap-2 bg-primary hover:bg-[#10c95a] text-black px-5 py-2.5 rounded-full font-bold transition-colors shadow-lg shadow-primary/20">
+                <span class="material-symbols-outlined text-lg">download</span>
+                <span>Télécharger PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Invoice Card -->
+    <div
+        class="bg-white dark:bg-[#1A1D1B] rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-[#28392f] print:shadow-none print:border-none print:rounded-none">
+        <div class="bg-secondary h-3 w-full print:bg-[#3a5c1a]"></div>
+        <div class="p-8 lg:p-12 print:p-8">
+            <!-- Header section inside card -->
+            <div class="flex flex-col md:flex-row justify-between gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="size-10 text-secondary dark:text-primary">
+                            <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd"
+                                    d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+                                    fill="currentColor" fill-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-black dark:text-white text-2xl font-black tracking-tight uppercase">DIGICOOPS
+                        </h2>
+                    </div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                        <p class="font-bold text-black dark:text-white">Siège Social</p>
+                        <p>128 Route des Moissons</p>
+                        <p>44000 Nantes, France</p>
+                        <p>TVA: FR 89 123456789</p>
+                        <p>support@digicoops.fr</p>
+                    </div>
+                </div>
+                <div class="text-right md:text-right flex flex-col items-start md:items-end">
+                    <h3 class="text-4xl font-black text-secondary dark:text-primary tracking-tight mb-2">FACTURE</h3>
+                    <p class="text-lg font-bold text-black dark:text-white mb-6">#INV-2023-089</p>
+                    <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                        <div class="text-gray-500 dark:text-gray-400">Date d'émission:</div>
+                        <div class="font-medium text-black dark:text-white">24 Oct 2023</div>
+                        <div class="text-gray-500 dark:text-gray-400">Date d'échéance:</div>
+                        <div class="font-medium text-black dark:text-white">24 Nov 2023</div>
+                        <div class="text-gray-500 dark:text-gray-400">Statut:</div>
+                        <div class="font-bold text-primary">Payée</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client & Shipping info -->
+            <div
+                class="bg-background-light dark:bg-[#212924] rounded-xl p-6 mb-10 border border-gray-200 dark:border-[#28392f] print:bg-gray-50 print:border-gray-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase text-gray-500 dark:text-[#9db9a8] tracking-widest mb-3">
+                            Facturé à</h4>
+                        <p class="text-lg font-bold text-black dark:text-white mb-1">Jean Dupont</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">EARL La Ferme des Peupliers</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">33 Chemin du Ruisseau</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">35000 Rennes, France</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">N° Client: CL-4892</p>
+                    </div>
+                    <div class="md:border-l border-gray-200 dark:border-[#28392f] md:pl-8">
+                        <h4 class="text-xs font-bold uppercase text-gray-500 dark:text-[#9db9a8] tracking-widest mb-3">
+                            Informations de livraison</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-1"><span
+                                class="font-semibold text-black dark:text-white">Mode:</span> Livraison standard sur
+                            exploitation</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-1"><span
+                                class="font-semibold text-black dark:text-white">Bon de commande:</span> PO-9923</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-4 italic">"Livraison à déposer près du
+                            hangar principal, merci de contacter Jean 1h avant."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-[#28392f] mb-8">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr
+                            class="bg-gray-100 dark:bg-[#212924] text-gray-600 dark:text-[#9db9a8] border-b border-gray-200 dark:border-[#28392f] print:bg-gray-100 print:text-black">
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider w-1/12">#</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider w-5/12">Description</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider w-2/12 text-right">Qté</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider w-2/12 text-right">Prix
+                                Unit.
+                                HT</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider w-2/12 text-right">Total HT
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-[#28392f]">
+                        <tr class="dark:bg-[#1A1D1B]">
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">1</td>
+                            <td class="px-6 py-4">
+                                <p class="text-sm font-bold text-black dark:text-white">Semences Blé Tendre Hiver -
+                                    Variété Chevignon</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Sac de 25kg - Traitement
+                                    fongicide inclus</p>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-black dark:text-white text-right font-medium">40</td>
+                            <td class="px-6 py-4 text-sm text-black dark:text-white text-right">24,50 €</td>
+                            <td class="px-6 py-4 text-sm font-bold text-black dark:text-white text-right">980,00 €</td>
+                        </tr>
+                        <tr class="dark:bg-[#1A1D1B]">
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">2</td>
+                            <td class="px-6 py-4">
+                                <p class="text-sm font-bold text-black dark:text-white">Engrais Organique Granulé NPK
+                                    4-3-3</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Big Bag 500kg - Utilisable en
+                                    AB</p>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-black dark:text-white text-right font-medium">2</td>
+                            <td class="px-6 py-4 text-sm text-black dark:text-white text-right">110,00 €</td>
+                            <td class="px-6 py-4 text-sm font-bold text-black dark:text-white text-right">220,00 €</td>
+                        </tr>
+                        <tr class="dark:bg-[#1A1D1B]">
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">3</td>
+                            <td class="px-6 py-4">
+                                <p class="text-sm font-bold text-black dark:text-white">Frais de Livraison</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Transporteur local agrée</p>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-black dark:text-white text-right font-medium">1</td>
+                            <td class="px-6 py-4 text-sm text-black dark:text-white text-right">50,00 €</td>
+                            <td class="px-6 py-4 text-sm font-bold text-black dark:text-white text-right">50,00 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Totals -->
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                <div class="w-full md:w-1/2">
+                    <h4 class="text-sm font-bold text-black dark:text-white mb-3">Informations de Paiement</h4>
+                    <div
+                        class="bg-gray-50 dark:bg-[#212924] p-4 rounded-lg border border-gray-200 dark:border-[#28392f] text-sm">
+                        <p class="flex justify-between mb-2">
+                            <span class="text-gray-600 dark:text-gray-400">Méthode:</span>
+                            <span class="font-semibold text-black dark:text-white">Virement Bancaire</span>
+                        </p>
+                        <p class="flex justify-between mb-2">
+                            <span class="text-gray-600 dark:text-gray-400">Banque:</span>
+                            <span class="font-semibold text-black dark:text-white">Crédit Agricole</span>
+                        </p>
+                        <p class="flex justify-between">
+                            <span class="text-gray-600 dark:text-gray-400">IBAN:</span>
+                            <span class="font-mono text-black dark:text-white">FR76 1234 5678 9012 3456 7890 123</span>
+                        </p>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-4 leading-relaxed">
+                        Conditions : Paiement à 30 jours net date de facture. En cas de retard de paiement, une pénalité
+                        de 3 fois le taux d'intérêt légal sera appliquée.
+                    </p>
+                </div>
+                <div class="w-full md:w-5/12">
+                    <div class="flex justify-between py-2 border-b border-gray-200 dark:border-[#28392f]">
+                        <span class="text-gray-600 dark:text-[#9db9a8]">Total HT</span>
+                        <span class="font-semibold text-black dark:text-white">1 250,00 €</span>
+                    </div>
+                    <div class="flex justify-between py-2 border-b border-gray-200 dark:border-[#28392f]">
+                        <span class="text-gray-600 dark:text-[#9db9a8]">TVA (10%) - Semences</span>
+                        <span class="font-semibold text-black dark:text-white">98,00 €</span>
+                    </div>
+                    <div class="flex justify-between py-2 border-b border-gray-200 dark:border-[#28392f]">
+                        <span class="text-gray-600 dark:text-[#9db9a8]">TVA (20%) - Autres</span>
+                        <span class="font-semibold text-black dark:text-white">54,00 €</span>
+                    </div>
+                    <div class="flex justify-between py-4 items-end mt-2">
+                        <span class="text-lg font-bold text-black dark:text-white">Total TTC</span>
+                        <div class="text-right">
+                            <span class="block text-2xl font-black text-secondary dark:text-primary">1 402,00 €</span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">TVA incluse</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer section inside card -->
+            <div class="mt-12 pt-8 border-t border-gray-200 dark:border-[#28392f] text-center">
+                <p class="text-sm font-medium text-black dark:text-white mb-1">Merci pour votre confiance !</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Si vous avez des questions concernant cette facture,
+                    contactez-nous à compta@digicoops.fr</p>
+            </div>
+        </div>
+
+        <!-- Visual background pattern for web only -->
+        <div class="bg-[url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center h-4 opacity-40 mix-blend-overlay print:hidden"
+            data-alt="Agricultural pattern"></div>
+    </div>
+
+    <!-- Print Styles -->
+    <style>
+        @media print {
+            body {
+                background: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            main {
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .print\:hidden {
+                display: none !important;
+            }
+
+            .shadow-2xl {
+                box-shadow: none !important;
+            }
+
+            .rounded-2xl {
+                border-radius: 0 !important;
+            }
+
+            .print\:px-0 {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .print\:py-0 {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+
+            .print\:max-w-none {
+                max-width: none !important;
+            }
+
+            .print\:bg-gray-50 {
+                background-color: #f9fafb !important;
+            }
+
+            .print\:border-gray-300 {
+                border-color: #d1d5db !important;
+            }
+
+            .print\:text-black {
+                color: black !important;
+            }
+
+            .print\:bg-gray-100 {
+                background-color: #f3f4f6 !important;
+            }
+        }
+    </style>
+</main>

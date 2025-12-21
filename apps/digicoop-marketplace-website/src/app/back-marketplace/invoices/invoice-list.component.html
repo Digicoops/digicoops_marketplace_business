@@ -1,0 +1,71 @@
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 lg:px-10 py-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+            <h1 class="text-white text-3xl lg:text-4xl font-black tracking-tight mb-2">Mes Factures</h1>
+            <p class="text-[#9db9a8]">Gérez et consultez l'historique de vos paiements.</p>
+        </div>
+        <button
+            class="bg-[#28392f] hover:bg-[#3b5445] text-white text-sm font-bold py-2.5 px-5 rounded-lg transition-colors flex items-center gap-2 border border-[#3b5445]">
+            <span class="material-symbols-outlined text-[20px]">download</span>
+            Exporter tout
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-8 flex flex-col gap-6">
+            <app-invoice-filters></app-invoice-filters>
+            <app-invoice-table></app-invoice-table>
+
+            <div
+                class="relative overflow-hidden rounded-xl bg-secondary h-32 flex items-center px-8 shadow-lg mt-2 hidden md:flex">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"
+                    data-alt="Fields of green crops pattern"></div>
+                <div class="relative z-10 flex-1">
+                    <h3 class="text-white text-xl font-bold mb-1">Passer à la dématérialisation ?</h3>
+                    <p class="text-white/80 text-sm">Optez pour la facturation électronique et gagnez du temps.</p>
+                </div>
+                <button
+                    class="relative z-10 bg-white hover:bg-gray-100 text-secondary text-sm font-bold py-2.5 px-5 rounded-full transition-colors shadow-md">
+                    En savoir plus
+                </button>
+            </div>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col gap-8">
+            <app-invoice-activity></app-invoice-activity>
+            <app-invoice-support></app-invoice-support>
+
+            <div>
+                <h3 class="text-white text-lg font-bold mb-4">Accès Rapide</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <a class="group flex flex-col items-center justify-center gap-3 bg-[#1A1D1B] hover:bg-[#28392f] border border-[#28392f] p-5 rounded-xl transition-all duration-300"
+                        href="#">
+                        <span
+                            class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">shopping_bag</span>
+                        <span class="text-white text-sm font-medium text-center">Nouvelle Commande</span>
+                    </a>
+                    <a class="group flex flex-col items-center justify-center gap-3 bg-[#1A1D1B] hover:bg-[#28392f] border border-[#28392f] p-5 rounded-xl transition-all duration-300"
+                        href="#">
+                        <span
+                            class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">settings</span>
+                        <span class="text-white text-sm font-medium text-center">Paramètres</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-[#1A1D1B] border border-[#28392f] rounded-xl p-5 flex items-start gap-4">
+                <div class="bg-[#28392f] p-3 rounded-full text-white shrink-0">
+                    <span class="material-symbols-outlined">domain</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-[#9db9a8] text-xs font-bold uppercase tracking-wide mb-1">Adresse de facturation</p>
+                    <p class="text-white text-sm font-medium truncate">EARL Ferme des Peupliers</p>
+                    <p class="text-white/60 text-sm truncate">33 Route de la Vallée, 44000...</p>
+                </div>
+                <button class="text-primary hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-lg">edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</main>

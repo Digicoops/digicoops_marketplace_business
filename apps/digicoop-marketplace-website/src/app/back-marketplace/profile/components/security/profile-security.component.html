@@ -1,0 +1,40 @@
+<section id="security" class="bg-[#1A1D1B] border border-[#28392f] rounded-2xl overflow-hidden shadow-lg">
+    <div class="px-6 lg:px-8 py-6 border-b border-[#28392f] flex justify-between items-center bg-[#212523]">
+        <h3 class="text-white text-lg font-bold flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-primary">shield</span>
+            Sécurité du compte
+        </h3>
+    </div>
+    <div class="p-6 lg:p-8 space-y-4">
+        <div
+            class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-[#102217] rounded-xl border border-[#28392f] hover:border-[#3b5445] transition-colors gap-4">
+            <div>
+                <p class="text-white font-bold mb-1 flex items-center gap-2">
+                    Authentification à deux facteurs
+                    <span
+                        class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider">Recommandé</span>
+                </p>
+                <p class="text-xs text-[#9db9a8]">Sécurisez votre compte avec un code envoyé par SMS.</p>
+            </div>
+            <div class="relative inline-block w-12 h-6 flex-shrink-0">
+                <input
+                    class="peer appearance-none w-12 h-6 bg-[#28392f] rounded-full checked:bg-primary cursor-pointer transition-colors duration-300"
+                    id="2fa-toggle" type="checkbox" />
+                <label
+                    class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-6 cursor-pointer shadow-sm"
+                    for="2fa-toggle"></label>
+            </div>
+        </div>
+        <div
+            class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-[#102217] rounded-xl border border-[#28392f] hover:border-[#3b5445] transition-colors gap-4">
+            <div>
+                <p class="text-white font-bold mb-1">Mot de passe</p>
+                <p class="text-xs text-[#9db9a8]">Dernière modification il y a 3 mois</p>
+            </div>
+            <button
+                class="text-white text-sm font-bold bg-[#28392f] hover:bg-[#3b5445] px-4 py-2 rounded-lg transition-colors border border-[#3b5445]">
+                Modifier
+            </button>
+        </div>
+    </div>
+</section>

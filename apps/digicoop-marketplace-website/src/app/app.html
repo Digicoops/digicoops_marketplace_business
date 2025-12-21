@@ -1,2 +1,9 @@
+@if(showGlobalHeader()) {
 <app-header></app-header>
+}
+
 <router-outlet></router-outlet>
+
+@if(showGlobalHeader()) {
+<app-footer></app-footer>
+}

@@ -1,0 +1,23 @@
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 lg:px-10 py-8">
+    <app-dashboard-stats></app-dashboard-stats>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-8 flex flex-col gap-6">
+            <div class="flex items-center justify-between">
+                <h2 class="text-white text-2xl font-bold tracking-tight">Commandes Récentes</h2>
+                <a routerLink="/dashboard/orders"
+                    class="text-primary hover:text-white text-sm font-semibold transition-colors flex items-center gap-1">
+                    Voir tout <span class="material-symbols-outlined text-lg">chevron_right</span>
+                </a>
+            </div>
+            <app-dashboard-orders></app-dashboard-orders>
+            <app-dashboard-promo></app-dashboard-promo>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col gap-8">
+            <app-dashboard-tracking></app-dashboard-tracking>
+            <app-dashboard-quick-access></app-dashboard-quick-access>
+            <app-dashboard-region></app-dashboard-region>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,41 @@
+<section class="mb-10 animate-fade-in-up">
+    <h1 class="text-white text-4xl lg:text-5xl font-black tracking-tight mb-2">Bonjour, Jean 👋</h1>
+    <p class="text-[#9db9a8] text-lg">Voici l'état de votre exploitation aujourd'hui.</p>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    <div
+        class="relative overflow-hidden rounded-xl p-6 bg-secondary text-white shadow-lg group hover:shadow-primary/10 transition-shadow">
+        <div
+            class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition-all">
+        </div>
+        <div class="flex justify-between items-start mb-4 relative z-10">
+            <div class="p-2 bg-white/10 rounded-lg">
+                <span class="material-symbols-outlined text-primary">inventory_2</span>
+            </div>
+            <span class="text-xs font-bold bg-black/20 px-2 py-1 rounded-full text-primary">+2 cette semaine</span>
+        </div>
+        <p class="text-white/80 text-sm font-medium mb-1">Commandes en cours</p>
+        <p class="text-4xl font-bold tracking-tight">2</p>
+    </div>
+    <div class="relative overflow-hidden rounded-xl p-6 bg-[#1A1D1B] border border-[#28392f] text-white shadow-lg">
+        <div class="flex justify-between items-start mb-4">
+            <div class="p-2 bg-[#28392f] rounded-lg">
+                <span class="material-symbols-outlined text-white">local_shipping</span>
+            </div>
+        </div>
+        <p class="text-[#9db9a8] text-sm font-medium mb-1">Livraison prévue</p>
+        <p class="text-3xl font-bold tracking-tight">Demain <span class="text-xl font-normal text-white/60">14h</span>
+        </p>
+    </div>
+    <div class="relative overflow-hidden rounded-xl p-6 bg-[#1A1D1B] border border-[#28392f] text-white shadow-lg">
+        <div class="flex justify-between items-start mb-4">
+            <div class="p-2 bg-[#28392f] rounded-lg">
+                <span class="material-symbols-outlined text-red-400">cancel_schedule_send</span>
+            </div>
+            <button
+                class="text-xs font-bold text-red-400 hover:text-red-300 transition-colors bg-red-400/10 px-3 py-1.5 rounded-full">Détails</button>
+        </div>
+        <p class="text-[#9db9a8] text-sm font-medium mb-1">Livraison échouée</p>
+        <p class="text-3xl font-bold tracking-tight">1</p>
+    </div>
+</section>

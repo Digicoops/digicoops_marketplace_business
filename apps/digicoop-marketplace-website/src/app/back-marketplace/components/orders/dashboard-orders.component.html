@@ -1,0 +1,99 @@
+<div class="bg-[#1A1D1B] border border-[#28392f] rounded-xl overflow-hidden shadow-sm flex flex-col">
+    <div class="overflow-x-auto flex-grow">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-[#212924] border-b border-[#28392f]">
+                    <th class="px-6 py-4 text-xs font-semibold text-white uppercase tracking-wider">N° Commande</th>
+                    <th class="px-6 py-4 text-xs font-semibold text-white uppercase tracking-wider">Date</th>
+                    <th class="px-6 py-4 text-xs font-semibold text-white uppercase tracking-wider">Statut</th>
+                    <th class="px-6 py-4 text-xs font-semibold text-white uppercase tracking-wider">Total</th>
+                    <th class="px-6 py-4 text-xs font-semibold text-white uppercase tracking-wider text-right">Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-[#28392f]">
+                <tr class="group hover:bg-[#28392f]/50 transition-colors">
+                    <td class="px-6 py-4 text-sm text-[#9db9a8] font-medium">CMD-2023-089</td>
+                    <td class="px-6 py-4 text-sm text-[#9db9a8]">24 Oct 2023</td>
+                    <td class="px-6 py-4">
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#13ec6a]/10 text-primary border border-[#13ec6a]/20">
+                            <span class="size-1.5 rounded-full bg-primary animate-pulse"></span> Expédié
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-white font-medium">1 250 €</td>
+                    <td class="px-6 py-4 text-right">
+                        <a [routerLink]="['/dashboard/order', 'CMD-2023-089']"
+                            class="text-[#9db9a8] hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full inline-flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">visibility</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="group hover:bg-[#28392f]/50 transition-colors">
+                    <td class="px-6 py-4 text-sm text-[#9db9a8] font-medium">CMD-2023-088</td>
+                    <td class="px-6 py-4 text-sm text-[#9db9a8]">20 Oct 2023</td>
+                    <td class="px-6 py-4">
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-yellow-500/10 text-yellow-500 border border-yellow-500/20">
+                            <span class="size-1.5 rounded-full bg-yellow-500"></span> En traitement
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-white font-medium">450 €</td>
+                    <td class="px-6 py-4 text-right">
+                        <a [routerLink]="['/dashboard/order', 'CMD-2023-089']"
+                            class="text-[#9db9a8] hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full inline-flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">visibility</span>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="group hover:bg-[#28392f]/50 transition-colors">
+                    <td class="px-6 py-4 text-sm text-[#9db9a8] font-medium">CMD-2023-085</td>
+                    <td class="px-6 py-4 text-sm text-[#9db9a8]">15 Oct 2023</td>
+                    <td class="px-6 py-4">
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gray-500/10 text-gray-400 border border-gray-500/20">
+                            <span class="size-1.5 rounded-full bg-gray-400"></span> Livré
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-white font-medium">890 €</td>
+                    <td class="px-6 py-4 text-right">
+                        <a [routerLink]="['/dashboard/order', 'CMD-2023-085']"
+                            class="text-[#9db9a8] hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full inline-flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">description</span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div
+        class="px-6 py-4 border-t border-[#28392f] bg-[#1A1D1B] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-[#9db9a8]">
+            Affichage de <span class="font-medium text-white">1</span> à <span class="font-medium text-white">3</span>
+            sur <span class="font-medium text-white">45</span> résultats
+        </p>
+        <nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md shadow-sm">
+            <a class="relative inline-flex items-center rounded-l-md px-2 py-2 text-[#9db9a8] ring-1 ring-inset ring-[#28392f] hover:bg-[#28392f] focus:z-20 focus:outline-offset-0"
+                href="#">
+                <span class="sr-only">Précédent</span>
+                <span class="material-symbols-outlined text-lg">chevron_left</span>
+            </a>
+            <a aria-current="page"
+                class="relative z-10 inline-flex items-center bg-[#28392f] px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary border-t border-b border-[#28392f]"
+                href="#">1</a>
+            <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-[#9db9a8] ring-1 ring-inset ring-[#28392f] hover:bg-[#28392f] focus:z-20 focus:outline-offset-0"
+                href="#">2</a>
+            <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-[#9db9a8] ring-1 ring-inset ring-[#28392f] hover:bg-[#28392f] focus:z-20 focus:outline-offset-0"
+                href="#">3</a>
+            <span
+                class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-[#9db9a8] ring-1 ring-inset ring-[#28392f] focus:outline-offset-0">...</span>
+            <a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-[#9db9a8] ring-1 ring-inset ring-[#28392f] hover:bg-[#28392f] focus:z-20 focus:outline-offset-0"
+                href="#">8</a>
+            <a class="relative inline-flex items-center rounded-r-md px-2 py-2 text-[#9db9a8] ring-1 ring-inset ring-[#28392f] hover:bg-[#28392f] focus:z-20 focus:outline-offset-0"
+                href="#">
+                <span class="sr-only">Suivant</span>
+                <span class="material-symbols-outlined text-lg">chevron_right</span>
+            </a>
+        </nav>
+    </div>
+</div>

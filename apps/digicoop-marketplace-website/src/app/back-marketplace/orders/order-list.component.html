@@ -1,0 +1,17 @@
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 lg:px-10 py-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+            <h1 class="text-white text-3xl lg:text-4xl font-black tracking-tight mb-2">Historique des Commandes</h1>
+            <p class="text-[#9db9a8]">Suivez et gérez l'ensemble de vos commandes passées sur Digicoops.</p>
+        </div>
+        <button
+            class="bg-[#28392f] hover:bg-[#3b5445] text-white text-sm font-bold py-2.5 px-5 rounded-lg transition-colors flex items-center gap-2 border border-[#3b5445]">
+            <span class="material-symbols-outlined text-[20px]">download</span>
+            Exporter historique
+        </button>
+    </div>
+
+    <div class="space-y-6">
+        <app-dashboard-orders></app-dashboard-orders>
+    </div>
+</main>

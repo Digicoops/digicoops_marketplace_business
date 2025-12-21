@@ -1,0 +1,43 @@
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 lg:px-10 py-8">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+        <div>
+            <h1 class="text-white text-3xl font-black tracking-tight mb-2">Mon Profil</h1>
+            <p class="text-[#9db9a8]">Gérez vos informations personnelles et vos préférences de compte.</p>
+        </div>
+        <div class="flex gap-3">
+            <button
+                class="px-5 py-2.5 rounded-xl border border-[#28392f] text-white hover:bg-[#28392f] transition-colors font-medium text-sm">
+                Annuler
+            </button>
+            <button
+                class="px-5 py-2.5 rounded-xl bg-primary text-[#102217] hover:bg-[#10c95a] transition-colors font-bold text-sm shadow-lg shadow-primary/20 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">save</span>
+                Enregistrer
+            </button>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-4 flex flex-col gap-6">
+            <app-profile-card></app-profile-card>
+            <app-profile-sidebar></app-profile-sidebar>
+
+            <div class="bg-[#28392f]/30 border border-[#28392f] rounded-2xl p-5 flex items-start gap-4">
+                <div class="p-2 bg-[#28392f] rounded-lg text-primary">
+                    <span class="material-symbols-outlined">support_agent</span>
+                </div>
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-1">Besoin d'aide ?</h4>
+                    <p class="text-[#9db9a8] text-xs mb-3">Notre équipe support est disponible 7j/7 pour vous aider.</p>
+                    <button class="text-primary text-xs font-bold hover:underline">Contacter le support</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-8 flex flex-col gap-8">
+            <app-profile-basic-info></app-profile-basic-info>
+            <app-profile-farm-info></app-profile-farm-info>
+            <app-profile-security></app-profile-security>
+        </div>
+    </div>
+</main>
