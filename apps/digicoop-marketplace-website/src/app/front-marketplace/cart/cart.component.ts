@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../core/services/cart.service';
 import { CartItemComponent } from '../../shared/cart-item/cart-item.component';
 import { CartSummaryComponent } from '../../shared/cart-summary/cart-summary.component';
 import { ProductRecommendationsComponent } from '../../shared/product-recommendations/product-recommendations.component';

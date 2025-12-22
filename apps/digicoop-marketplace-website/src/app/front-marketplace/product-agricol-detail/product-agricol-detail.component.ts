@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { CurrencyService } from '../../services/currency.service';
-import { DataService, Product } from '../../services/data.service';
+import { CurrencyService } from '../../core/services/currency.service';
+import { DataService, Product } from '../../core/services/data.service';
 import { ProductRecommendationsComponent } from '../../shared/product-recommendations/product-recommendations.component';
 
 @Component({

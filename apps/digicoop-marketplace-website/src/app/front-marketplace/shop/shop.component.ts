@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { DataService, Product } from '../../services/data.service';
+import { DataService, Product } from '../../core/services/data.service';
 import { ProductCardComponent } from '../../shared/product-card/product-card.component';
 
 @Component({

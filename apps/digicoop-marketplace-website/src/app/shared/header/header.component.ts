@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CartService } from '../../services/cart.service';
-import { Currency, CurrencyService } from '../../services/currency.service';
+import { CartService } from '../../core/services/cart.service';
+import { Currency, CurrencyService } from '../../core/services/currency.service';
 
 @Component({
   selector: 'app-header',

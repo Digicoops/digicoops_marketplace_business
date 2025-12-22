@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, computed, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { CartService } from '../../services/cart.service';
-import { CurrencyService } from '../../services/currency.service';
-import { Product } from '../../services/data.service';
+import { CartService } from '../../core/services/cart.service';
+import { CurrencyService } from '../../core/services/currency.service';
+import { Product } from '../../core/services/data.service';
 
 @Component({
   selector: 'app-product-card',

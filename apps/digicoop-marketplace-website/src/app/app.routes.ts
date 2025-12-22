@@ -64,6 +64,10 @@ export const appRoutes: Route[] = [
     loadComponent: () => import('./front-marketplace/register/register.component').then(m => m.RegisterComponent)
   },
   {
+    path: 'register-success',
+    loadComponent: () => import('./front-marketplace/register-success/register-success.component').then(m => m.RegisterSuccessComponent)
+  },
+  {
     path: 'forgot-password',
     loadComponent: () => import('./front-marketplace/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
   },

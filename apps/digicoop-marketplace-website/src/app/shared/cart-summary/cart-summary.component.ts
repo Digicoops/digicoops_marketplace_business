@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output, computed, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CurrencyService } from '../../services/currency.service';
+import { CurrencyService } from '../../core/services/currency.service';
 
 @Component({
   selector: 'app-cart-summary',

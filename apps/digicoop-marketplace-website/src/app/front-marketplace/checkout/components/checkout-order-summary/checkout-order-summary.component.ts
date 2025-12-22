@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output, computed, inject } from '@angular/core';
-import { CartService } from '../../../../services/cart.service';
-import { CurrencyService } from '../../../../services/currency.service';
+import { CartService } from '../../../../core/services/cart.service';
+import { CurrencyService } from '../../../../core/services/currency.service';
 
 @Component({
   selector: 'app-checkout-order-summary',

@@ -1,0 +1,37 @@
+<div class="min-h-screen bg-gray-50 dark:bg-[#141712] flex flex-col items-center justify-center p-4">
+    <div
+        class="w-full max-w-md bg-white dark:bg-[#1c2116] rounded-2xl shadow-xl shadow-black/5 border border-gray-100 dark:border-[#30362b] p-8 text-center animate-in fade-in zoom-in duration-500">
+
+        <!-- Logo/Icon -->
+        <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-primary text-4xl animate-bounce">mail</span>
+        </div>
+
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Email envoyé !
+        </h1>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+            Veuillez valider votre compte en cliquant sur le lien de confirmation que nous venons de vous envoyer par
+            email.
+        </p>
+
+        <div class="space-y-4">
+            <a routerLink="/login"
+                class="flex w-full justify-center rounded-lg bg-primary px-3 py-3 text-sm font-bold leading-6 text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all">
+                Aller à la page de connexion
+            </a>
+
+            <p class="text-xs text-gray-500 dark:text-gray-500 pt-4">
+                Vous n'avez pas reçu l'email ?
+                <button class="text-primary hover:underline font-medium">Renvoyer</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Back to home -->
+    <a routerLink="/" class="mt-8 flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        Retour à l'accueil
+    </a>
+</div>
