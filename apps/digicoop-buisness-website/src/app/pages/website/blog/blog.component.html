@@ -1,0 +1,203 @@
+<div class="bg-background-light dark:bg-background-dark font-display text-[#141712] dark:text-white">
+    <div class="relative w-full h-[600px] lg:h-[650px] overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Agriculture Digitale"
+                class="w-full h-full object-cover scale-105 animate-[pulse_20s_infinite_alternate]"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRFPXYfDUiO5CmBmThIMXHOigyvvrAzkAUU0fE4rHAoPQ6RhnLNKmulG2_PHjB6yJsRG_9VBXzIwGVNpC_aNXy57nKHo8aMmysR9pnVB6Ne5QJfdglxIMwjGJ-kDN0oVcs97a5LNxg7sGT94SPvp78VFr-G-KdvPWaPd1e4cj1prwLretzBMEXctvw3Ig1y8QxBwaN8qVOqawlv279YwN3JGlIEsQWsdwa50ZOHdhqWBYS2Qx92FrHQfe4cvop12GpIS2w0fFVlI19" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
+            <div
+                class="absolute inset-0 opacity-[0.1] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=')]">
+            </div>
+        </div>
+
+        <div class="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center pt-24">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/90 text-white text-xs font-bold uppercase tracking-wider mb-8 border border-white/10 backdrop-blur-sm shadow-glow">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                Solutions AgTech 4.0
+            </div>
+
+            <div class="max-w-[1000px] mx-auto animate-fade-in-up">
+
+                <h1
+                    class="text-white text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6 drop-shadow-lg text-balance">
+                    Actualités & <span class="text-primary-light">Tendances Agricoles.</span>
+                </h1>
+                <h2 class="text-white/90 text-base md:text-lg font-normal max-w-[600px] mx-auto mb-8">
+                    Restez informé des dernières innovations Agritech, suivez nos mises à jour produits et découvrez les
+                    défis de l'agriculture de demain.
+                </h2>
+                <div
+                    class="flex w-full max-w-[480px] mx-auto h-12 md:h-14 bg-white rounded-lg shadow-lg overflow-hidden group focus-within:ring-2 ring-primary transition-all">
+                    <div class="flex items-center justify-center pl-4 pr-2 text-[#758268]">
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
+                    <input
+                        class="w-full h-full border-none outline-none text-sm md:text-base text-[#141712] placeholder-[#758268]"
+                        placeholder="Rechercher un article..." />
+                    <button class="bg-primary hover:bg-[#2d4614] text-white font-bold h-full px-6 transition-colors">
+                        Rechercher
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-[1200px] mx-auto px-4 md:px-6 py-12 flex flex-col gap-12 relative isolate">
+        <div
+            class="absolute top-20 right-[-100px] w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none">
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+            @for(category of categories; track category) {
+            <button (click)="selectCategory(category)"
+                [class]="activeCategory() === category ? 'bg-primary text-white' : 'bg-[#f2f4f1] dark:bg-[#2a3322] text-[#141712] dark:text-white hover:bg-[#e0e4dd] dark:hover:bg-[#3d4a32]'"
+                class="flex h-9 items-center justify-center rounded-full px-5 text-sm font-medium transition-colors">
+                {{ category }}
+            </button>
+            }
+        </div>
+        <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white dark:bg-[#1e251a] rounded-3xl overflow-hidden shadow-sm border border-[#e0e4dd] dark:border-[#2a3322]">
+            <div class="h-64 lg:h-full min-h-[320px] relative overflow-hidden group">
+                <img alt="Featured article image"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu762kZCxP_Lb7lQMnZ0Xg39vttWXMyaRCquNn6U7KVzdFeVd0_s7yyRG7zL_jqAWXKNng1_JGRD_0v9yr7kN6VUiNedPpnF5eRjkZ1E9JrvLK6kn3HswIZ3GNRwuuKrnR0wsdB8OUQQ0xwqx8LZOb5POPMVbz4BlZz3Aj_gZ5hhoDt0WIgg5TD0Gu5KbTkGUgBISFO1tG8DR8KiSK7jK-d7tmsmvxbPwSXjF7QzAadZXHma8uo8BG2W_TL7FQIYoOcdKG02_NhzYA" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:bg-none"></div>
+                <span
+                    class="absolute bottom-4 left-4 lg:hidden bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">À
+                    la une</span>
+            </div>
+            <div class="p-8 flex flex-col justify-center gap-4">
+                <div class="hidden lg:flex items-center gap-3">
+                    <span
+                        class="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Innovation</span>
+                    <span class="text-[#758268] text-xs font-medium flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">calendar_month</span> 15 Octobre 2023
+                    </span>
+                </div>
+                <h2
+                    class="text-3xl font-bold text-[#141712] dark:text-white leading-tight hover:text-primary transition-colors cursor-pointer">
+                    L'agriculture de précision : Comment l'IA redéfinit les rendements en 2024
+                </h2>
+                <p class="text-[#4a5241] dark:text-[#c0c9b8] leading-relaxed">
+                    Découvrez comment les algorithmes prédictifs et l'analyse de données en temps réel permettent aux
+                    agriculteurs d'optimiser leurs intrants tout en maximisant la qualité des récoltes. Une révolution
+                    silencieuse mais puissante dans nos champs.
+                </p>
+                <div class="flex items-center gap-4 mt-2">
+                    <div class="flex items-center gap-2">
+                        <div class="size-8 rounded-full bg-gray-200 overflow-hidden">
+                            <img alt="Author" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUPIEswXGdwNXA12gHW7U3cvtkDe_5TKZXXOvzPr9CYHZgiUwCK0sXA2qkuPJhIHc9ULFSOSTKyw1Owa0jZouAqZuUw022a_286aUKHjfK4ucJJ_mfLR5U6teIN_xxzho20sa26es_XuzVRct35drbM6F6EtELQBGLj3cNBR2WQ8xigUm1rfXBjI4AuQn8fDHMiSnzv2v2y7fAKkzh-d_pBIo2Ci3iGDNWf32IEHhP2Kog3NnpZVDPOZ6LI46lSCvn9fjgnAqT3IMq" />
+                        </div>
+                        <span class="text-sm font-semibold text-[#141712] dark:text-white">Sarah Lambert</span>
+                    </div>
+                    <a class="ml-auto text-primary font-bold text-sm flex items-center gap-1 group" href="#">
+                        Lire l'article <span
+                            class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <article
+                class="flex flex-col bg-white dark:bg-[#1e251a] rounded-2xl overflow-hidden shadow-sm border border-[#e0e4dd] dark:border-[#2a3322] group hover:shadow-md transition-shadow">
+                <div class="h-56 relative overflow-hidden">
+                    <img alt="Article thumbnail"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0RLVXsWWTHfkH3CBAErQdzoqWucZZaNPj9ZzcUqBdBlffgGqKsiIzf3R5ehC_0Ld060ciq9gGw8iJ64WPsw2k6k8uxcnm3zSrZHKKigkHGPKdUtPitWV0xkYlnRkFJ3BSFRmclEqaa8oSYLtp0-E-eLgMKCIJ3i3sfukWPwDwbkNdMIvhV2tXxsVv_YhRKv6NFrPXzEbbETc0OPl65qmLlQJ-zniMe09F-yGTobvtpbx-cR7kyyDb55Gn3ZILLAj8oJI9SiUU65K_" />
+                    <span
+                        class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm text-[#141712] dark:text-white text-xs font-bold px-3 py-1 rounded-full">Réglementation</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow gap-3">
+                    <span class="text-[#758268] text-xs flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">schedule</span> 5 min de lecture
+                    </span>
+                    <h3
+                        class="text-xl font-bold text-[#141712] dark:text-white group-hover:text-primary transition-colors">
+                        Nouvelle PAC 2024 : Ce qui change pour les céréaliers
+                    </h3>
+                    <p class="text-[#4a5241] dark:text-[#c0c9b8] text-sm leading-relaxed mb-4 line-clamp-3">
+                        Un décryptage complet des nouvelles mesures agro-environnementales et de leur impact sur vos
+                        déclarations annuelles. Préparez-vous sereinement.
+                    </p>
+                    <a class="mt-auto text-primary font-bold text-sm flex items-center gap-1" href="#">
+                        Lire la suite
+                    </a>
+                </div>
+            </article>
+            <article
+                class="flex flex-col bg-white dark:bg-[#1e251a] rounded-2xl overflow-hidden shadow-sm border border-[#e0e4dd] dark:border-[#2a3322] group hover:shadow-md transition-shadow">
+                <div class="h-56 relative overflow-hidden">
+                    <img alt="Article thumbnail"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAXkXZX8StWoFoCHNBV-Ig2p6QHcG9l_PE9hkYVLBHtu7Ky6hpwgVbNBb6hkHOvDzh7bGqTHhRERtIoC6gSsaR4Ag0rlBrixIEj1318v-P6bQ_UVGeN-3Ff2S0U5DJ4tD1IdzOICGN5snr1RI9KD2X_e-OIlZK4IMFntNF-6OWNWry_PIlMZ56uJvIBkkM51olCMkxxNhCYWmtbxafsxZ4QlNPwSG_R_1N98s2_8iwYgNbdV01ZrmL_PgQmAopkNK4GcjLshVBTX9d" />
+                    <span
+                        class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm text-[#141712] dark:text-white text-xs font-bold px-3 py-1 rounded-full">Témoignage</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow gap-3">
+                    <span class="text-[#758268] text-xs flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">schedule</span> 4 min de lecture
+                    </span>
+                    <h3
+                        class="text-xl font-bold text-[#141712] dark:text-white group-hover:text-primary transition-colors">
+                        "Le numérique a sauvé ma saison" : Retour d'expérience
+                    </h3>
+                    <p class="text-[#4a5241] dark:text-[#c0c9b8] text-sm leading-relaxed mb-4 line-clamp-3">
+                        Entretien avec Michel, viticulteur en Bourgogne, sur l'utilisation des alertes météo prédictives
+                        pour anticiper les épisodes de gel tardif.
+                    </p>
+                    <a class="mt-auto text-primary font-bold text-sm flex items-center gap-1" href="#">
+                        Lire la suite
+                    </a>
+                </div>
+            </article>
+            <article
+                class="flex flex-col bg-white dark:bg-[#1e251a] rounded-2xl overflow-hidden shadow-sm border border-[#e0e4dd] dark:border-[#2a3322] group hover:shadow-md transition-shadow">
+                <div class="h-56 relative overflow-hidden">
+                    <img alt="Article thumbnail"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUPIEswXGdwNXA12gHW7U3cvtkDe_5TKZXXOvzPr9CYHZgiUwCK0sXA2qkuPJhIHc9ULFSOSTKyw1Owa0jZouAqZuUw022a_286aUKHjfK4ucJJ_mfLR5U6teIN_xxzho20sa26es_XuzVRct35drbM6F6EtELQBGLj3cNBR2WQ8xigUm1rfXBjI4AuQn8fDHMiSnzv2v2y7fAKkzh-d_pBIo2Ci3iGDNWf32IEHhP2Kog3NnpZVDPOZ6LI46lSCvn9fjgnAqT3IMq" />
+                    <span
+                        class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm text-[#141712] dark:text-white text-xs font-bold px-3 py-1 rounded-full">Événement</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow gap-3">
+                    <span class="text-[#758268] text-xs flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">schedule</span> 2 min de lecture
+                    </span>
+                    <h3
+                        class="text-xl font-bold text-[#141712] dark:text-white group-hover:text-primary transition-colors">
+                        Retour sur le Salon de l'Agriculture 2023
+                    </h3>
+                    <p class="text-[#4a5241] dark:text-[#c0c9b8] text-sm leading-relaxed mb-4 line-clamp-3">
+                        Une édition riche en rencontres et en échanges. Merci à tous ceux qui sont passés sur notre
+                        stand pour découvrir nos dernières innovations.
+                    </p>
+                    <a class="mt-auto text-primary font-bold text-sm flex items-center gap-1" href="#">
+                        Lire la suite
+                    </a>
+                </div>
+            </article>
+        </div>
+        <div class="flex items-center justify-center gap-2 mt-8">
+            <button
+                class="size-10 flex items-center justify-center rounded-lg border border-[#e0e4dd] dark:border-[#2a3322] text-[#758268] hover:bg-[#f2f4f1] dark:hover:bg-[#2a3322] transition-colors disabled:opacity-50"
+                disabled="">
+                <span class="material-symbols-outlined text-sm">chevron_left</span>
+            </button>
+            <button
+                class="size-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-sm">1</button>
+            <button
+                class="size-10 flex items-center justify-center rounded-lg border border-[#e0e4dd] dark:border-[#2a3322] text-[#141712] dark:text-white font-medium text-sm hover:bg-[#f2f4f1] dark:hover:bg-[#2a3322] transition-colors">2</button>
+            <button
+                class="size-10 flex items-center justify-center rounded-lg border border-[#e0e4dd] dark:border-[#2a3322] text-[#141712] dark:text-white font-medium text-sm hover:bg-[#f2f4f1] dark:hover:bg-[#2a3322] transition-colors">3</button>
+            <span class="text-[#758268] px-2">...</span>
+            <button
+                class="size-10 flex items-center justify-center rounded-lg border border-[#e0e4dd] dark:border-[#2a3322] text-[#141712] dark:text-white font-medium text-sm hover:bg-[#f2f4f1] dark:hover:bg-[#2a3322] transition-colors">12</button>
+            <button
+                class="size-10 flex items-center justify-center rounded-lg border border-[#e0e4dd] dark:border-[#2a3322] text-[#758268] hover:bg-[#f2f4f1] dark:hover:bg-[#2a3322] transition-colors">
+                <span class="material-symbols-outlined text-sm">chevron_right</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+<app-shared-header></app-shared-header>
+
+<div class="relative w-full">
+    <div class="flex flex-col items-center justify-center min-h-[300px] bg-cover bg-center bg-no-repeat p-6 relative"
+        data-alt="Tractor in a large field"
+        style='background-image: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAXkXZX8StWoFoCHNBV-Ig2p6QHcG9l_PE9hkYVLBHtu7Ky6hpwgVbNBb6hkHOvDzh7bGqTHhRERtIoC6gSsaR4Ag0rlBrixIEj1318v-P6bQ_UVGeN-3Ff2S0U5DJ4tD1IdzOICGN5snr1RI9KD2X_e-OIlZK4IMFntNF-6OWNWry_PIlMZ56uJvIBkkM51olCMkxxNhCYWmtbxafsxZ4QlNPwSG_R_1N98s2_8iwYgNbdV01ZrmL_PgQmAopkNK4GcjLshVBTX9d");'>
+        <div class="relative z-10 flex flex-col gap-4 text-center max-w-[800px]">
+            <h1 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-tight">
+                Espace Agriculteur
+            </h1>
+            <p class="text-white/90 text-lg md:text-xl font-normal max-w-[600px] mx-auto">
+                Bienvenue sur votre portail de support. Gérez vos demandes et accédez à l'assistance en quelques clics.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-[1200px] mx-auto px-4 md:px-6 py-12 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Listing Card -->
+        <div
+            class="group bg-white dark:bg-[#1e251a] rounded-3xl p-8 shadow-sm border border-[#e0e4dd] dark:border-[#2a3322] hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col items-center text-center gap-6">
+            <div
+                class="size-20 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                <span class="material-symbols-outlined text-4xl">confirmation_number</span>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h3 class="text-2xl font-bold text-[#141712] dark:text-white">Mes Tickets</h3>
+                <p class="text-[#758268] max-w-[300px]">
+                    Consultez l'historique de vos demandes, suivez leur état d'avancement et répondez au support.
+                </p>
+            </div>
+            <button routerLink="/tickets/list"
+                class="mt-auto w-full py-4 bg-[#f2f4f1] dark:bg-[#262e21] group-hover:bg-primary group-hover:text-white text-[#141712] dark:text-white font-bold rounded-2xl transition-all flex items-center justify-center gap-2">
+                <span>Voir le listing</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+        </div>
+
+        <!-- Create Card -->
+        <div
+            class="group bg-white dark:bg-[#1e251a] rounded-3xl p-8 shadow-sm border border-[#e0e4dd] dark:border-[#2a3322] hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col items-center text-center gap-6">
+            <div
+                class="size-20 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-600 group-hover:scale-110 transition-transform duration-300">
+                <span class="material-symbols-outlined text-4xl">add_task</span>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h3 class="text-2xl font-bold text-[#141712] dark:text-white">Nouveau Ticket</h3>
+                <p class="text-[#758268] max-w-[300px]">
+                    Un problème technique ou une question ? Ouvrez une nouvelle demande auprès de nos techniciens.
+                </p>
+            </div>
+            <button routerLink="/tickets/new"
+                class="mt-auto w-full py-4 bg-[#f2f4f1] dark:bg-[#262e21] group-hover:bg-amber-500 group-hover:text-white text-[#141712] dark:text-white font-bold rounded-2xl transition-all flex items-center justify-center gap-2">
+                <span>Créer un ticket</span>
+                <span class="material-symbols-outlined">add</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Quick Info Section -->
+    <div
+        class="mt-16 md:mt-24 p-8 md:p-12 rounded-3xl bg-gradient-to-br from-[#f9fafb] to-[#f2f4f1] dark:from-[#262e21] dark:to-[#1e251a] border border-[#e0e4dd] dark:border-[#2a3322] flex flex-col md:flex-row items-center gap-8 md:gap-12 relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-0 translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div
+            class="relative z-10 flex-shrink-0 size-24 rounded-full bg-white dark:bg-[#2a3322] shadow-sm flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-5xl">support_agent</span>
+        </div>
+        <div class="relative z-10 flex-1 flex flex-col gap-4 text-center md:text-left">
+            <h4 class="text-xl font-bold text-[#141712] dark:text-white">Besoin d'aide supplémentaire ?</h4>
+            <p class="text-[#758268] max-w-[600px]">
+                Notre centre de connaissances regorge de guides et de tutoriels pour vous aider à tirer le meilleur
+                parti de vos outils DIGICOOPS.
+            </p>
+            <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-2">
+                <a href="#" class="text-primary font-bold hover:underline flex items-center gap-1">
+                    Consulter la FAQ
+                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+                </a>
+                <span class="text-gray-300">|</span>
+                <a href="mailto:support@digicoops.com"
+                    class="text-primary font-bold hover:underline flex items-center gap-1">
+                    Contacter par email
+                    <span class="material-symbols-outlined text-sm">mail</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

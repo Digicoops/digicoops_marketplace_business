@@ -1,0 +1,83 @@
+<header class="fixed top-4 left-4 right-4 z-50 transition-all duration-300">
+  <div
+    class="max-w-7xl mx-auto bg-white/95 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5 rounded-2xl px-6 h-20 flex items-center justify-between">
+    <a class="flex items-center gap-3 group" routerLink="/">
+      <div
+        class="w-10 h-10 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20 transition-transform duration-300 group-hover:scale-110">
+        <span class="material-symbols-outlined text-2xl">agriculture</span>
+      </div>
+      <span class="text-xl font-extrabold tracking-tight text-text-main">DIGI<span
+          class="text-primary">COOPS</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-2 bg-gray-50/50 p-1.5 rounded-xl border border-gray-100">
+      <a routerLink="/"
+        routerLinkActive="text-primary bg-white shadow-[0_4px_15px_-3px_rgba(58,92,26,0.15)] border border-primary/10 scale-105"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="px-5 py-2 text-sm font-semibold text-text-muted hover:text-primary hover:bg-white/50 hover:scale-105 rounded-lg transition-all duration-300">
+        Accueil
+      </a>
+
+      <div class="relative group">
+        <button
+          class="px-5 py-2 text-sm font-semibold text-text-muted group-hover:text-primary group-hover:bg-white/50 hover:scale-105 rounded-lg transition-all duration-300 flex items-center gap-1">
+          <span>Sur Nous</span>
+          <span
+            class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:rotate-180">expand_more</span>
+        </button>
+        <div
+          class="absolute top-full left-0 pt-2 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 z-50">
+          <div
+            class="bg-white/95 backdrop-blur-xl border border-gray-100 rounded-xl shadow-2xl p-2 w-52 overflow-hidden">
+            <a routerLink="/" fragment="vision"
+              class="flex items-center gap-3 px-4 py-2.5 text-sm text-text-muted hover:text-primary hover:bg-accent rounded-lg transition-all duration-200 group/item">
+              <span
+                class="material-symbols-outlined text-lg opacity-50 group-hover/item:opacity-100 group-hover/item:scale-110 transition-all">visibility</span>
+              Notre Vision
+            </a>
+            <a routerLink="/" fragment="mission"
+              class="flex items-center gap-3 px-4 py-2.5 text-sm text-text-muted hover:text-primary hover:bg-accent rounded-lg transition-all duration-200 group/item">
+              <span
+                class="material-symbols-outlined text-lg opacity-50 group-hover/item:opacity-100 group-hover/item:scale-110 transition-all">rocket_launch</span>
+              Notre Mission
+            </a>
+            <a routerLink="/" fragment="parcours"
+              class="flex items-center gap-3 px-4 py-2.5 text-sm text-text-muted hover:text-primary hover:bg-accent rounded-lg transition-all duration-200 group/item">
+              <span
+                class="material-symbols-outlined text-lg opacity-50 group-hover/item:opacity-100 group-hover/item:scale-110 transition-all">history_edu</span>
+              Notre Parcours
+            </a>
+            <div class="h-px bg-gray-100 my-1 mx-2"></div>
+            <a routerLink="/about"
+              class="flex items-center gap-3 px-4 py-2.5 text-sm text-text-muted hover:text-primary hover:bg-accent rounded-lg transition-all duration-200 group/item">
+              <span
+                class="material-symbols-outlined text-lg opacity-50 group-hover/item:opacity-100 group-hover/item:scale-110 transition-all">info</span>
+              À propos de nous
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a routerLink="/services"
+        routerLinkActive="text-primary bg-white shadow-[0_4px_15px_-3px_rgba(58,92,26,0.15)] border border-primary/10 scale-105"
+        class="px-5 py-2 text-sm font-semibold text-text-muted hover:text-primary hover:bg-white/50 hover:scale-105 rounded-lg transition-all duration-300">
+        Services
+      </a>
+      <a routerLink="/blog"
+        routerLinkActive="text-primary bg-white shadow-[0_4px_15px_-3px_rgba(58,92,26,0.15)] border border-primary/10 scale-105"
+        class="px-5 py-2 text-sm font-semibold text-text-muted hover:text-primary hover:bg-white/50 hover:scale-105 rounded-lg transition-all duration-300">
+        Actualités
+      </a>
+
+    </nav>
+    <div class="flex items-center gap-4">
+      <a routerLink="/contact"
+        class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 bg-[#3a5c1a] hover:bg-[#2a4213] text-white text-sm font-bold rounded-xl transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5 hover:ring-2 hover:ring-offset-2 hover:ring-primary">
+        <span>Nous contacter</span>
+        <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+      </a>
+      <button class="lg:hidden p-2 text-text-main hover:bg-gray-100 rounded-lg">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
+  </div>
+</header>

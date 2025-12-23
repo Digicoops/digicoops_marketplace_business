@@ -1,0 +1,260 @@
+<div class="bg-background-light dark:bg-background-dark font-display text-[#141712] dark:text-white">
+    <!-- Hero Section -->
+    <div class="relative w-full h-[500px] lg:h-[600px] overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Questions & FAQ"
+                class="w-full h-full object-cover scale-105 animate-[pulse_20s_infinite_alternate]"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAXkXZX8StWoFoCHNBV-Ig2p6QHcG9l_PE9hkYVLBHtu7Ky6hpwgVbNBb6hkHOvDzh7bGqTHhRERtIoC6gSsaR4Ag0rlBrixIEj1318v-P6bQ_UVGeN-3Ff2S0U5DJ4tD1IdzOICGN5snr1RI9KD2X_e-OIlZK4IMFntNF-6OWNWry_PIlMZ56uJvIBkkM51olCMkxxNhCYWmtbxafsxZ4QlNPwSG_R_1N98s2_8iwYgNbdV01ZrmL_PgQmAopkNK4GcjLshVBTX9d" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
+            <div
+                class="absolute inset-0 opacity-[0.1] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=')]">
+            </div>
+        </div>
+
+        <div class="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center pt-24">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/90 text-white text-xs font-bold uppercase tracking-wider mb-8 border border-white/10 backdrop-blur-sm shadow-glow">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                Support & FAQ
+            </div>
+            <div class="max-w-[1000px] mx-auto animate-fade-in-up">
+                <h1
+                    class="text-white text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6 drop-shadow-lg text-balance">
+                    Questions & <span class="text-primary-light">Retours d'Expérience.</span>
+                </h1>
+                <div
+                    class="flex w-full max-w-[480px] mx-auto h-12 md:h-14 bg-white rounded-lg shadow-lg overflow-hidden group focus-within:ring-2 ring-primary transition-all">
+                    <div class="flex items-center justify-center pl-4 pr-2 text-[#758268]">
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
+                    <input
+                        class="w-full h-full border-none outline-none text-sm md:text-base text-[#141712] placeholder-[#758268]"
+                        placeholder="Rechercher une réponse..." />
+                    <button class="bg-primary hover:bg-[#2d4614] text-white font-bold h-full px-6 transition-colors">
+                        Rechercher
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-[1200px] mx-auto px-4 md:px-6 py-12 flex flex-col gap-16 relative isolate">
+        <div
+            class="absolute top-0 left-[-100px] w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none">
+        </div>
+        <section class="flex flex-col gap-8 max-w-[960px] mx-auto w-full">
+            <div class="flex items-start gap-5">
+                <div
+                    class="hidden sm:flex h-14 w-14 items-center justify-center rounded-2xl bg-white border border-[#e0e4dd] dark:bg-[#1e251a] dark:border-[#2a3322] shadow-sm text-primary shrink-0">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3v19m0-19c0 5 4 9 9 9m-9-9C12 8 8 12 3 12" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-[#141712] dark:text-white text-3xl font-bold leading-tight tracking-tight">Foire aux
+                        Questions</h2>
+                    <p class="text-[#758268] dark:text-[#a0ac96]">Les réponses aux questions les plus fréquentes de nos
+                        partenaires.</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                @for(category of categories; track category) {
+                <button (click)="selectCategory(category)"
+                    [class]="activeCategory() === category ? 'bg-primary text-white' : 'bg-[#f2f4f1] dark:bg-[#2a3322] text-[#141712] dark:text-white hover:bg-[#e0e4dd] dark:hover:bg-[#3d4a32]'"
+                    class="flex h-9 items-center justify-center rounded-full px-5 text-sm font-medium transition-colors">
+                    {{ category }}
+                </button>
+                }
+            </div>
+            <div class="flex flex-col gap-4">
+                <details
+                    class="group flex flex-col rounded-xl border border-[#e0e4dd] dark:border-[#2a3322] bg-white dark:bg-[#1e251a] shadow-sm open:ring-1 open:ring-primary/20 transition-all"
+                    open="">
+                    <summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+                        <p class="text-[#141712] dark:text-white text-base font-semibold">DIGICOOPS est-il compatible
+                            avec mon matériel existant ?</p>
+                        <span
+                            class="material-symbols-outlined text-[#758268] group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0">
+                        <p class="text-[#4a5241] dark:text-[#c0c9b8] text-sm leading-relaxed">
+                            Oui, notre solution est conçue pour s'interfacer avec la majorité des équipements agricoles
+                            modernes via la norme ISOBUS. Nous proposons également des boîtiers adaptateurs pour les
+                            tracteurs plus anciens (modèles antérieurs à 2010), garantissant une connectivité
+                            universelle sur votre exploitation.
+                        </p>
+                    </div>
+                </details>
+                <details
+                    class="group flex flex-col rounded-xl border border-[#e0e4dd] dark:border-[#2a3322] bg-white dark:bg-[#1e251a] shadow-sm hover:border-[#cbd0c7] dark:hover:border-[#3d4a32] transition-all">
+                    <summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+                        <p class="text-[#141712] dark:text-white text-base font-semibold">Comment sont sécurisées mes
+                            données d'exploitation ?</p>
+                        <span
+                            class="material-symbols-outlined text-[#758268] group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0">
+                        <p class="text-[#4a5241] dark:text-[#c0c9b8] text-sm leading-relaxed">
+                            Vos données sont stockées sur des serveurs sécurisés situés en France. Nous utilisons un
+                            cryptage de bout en bout et nous nous engageons à ne jamais revendre vos données à des tiers
+                            sans votre consentement explicite. Vous restez seul propriétaire de vos informations
+                            agronomiques.
+                        </p>
+                    </div>
+                </details>
+                <details
+                    class="group flex flex-col rounded-xl border border-[#e0e4dd] dark:border-[#2a3322] bg-white dark:bg-[#1e251a] shadow-sm hover:border-[#cbd0c7] dark:hover:border-[#3d4a32] transition-all">
+                    <summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+                        <p class="text-[#141712] dark:text-white text-base font-semibold">Puis-je modifier mon offre en
+                            cours d'année ?</p>
+                        <span
+                            class="material-symbols-outlined text-[#758268] group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0">
+                        <p class="text-[#4a5241] dark:text-[#c0c9b8] text-sm leading-relaxed">
+                            Absolument. DIGICOOPS est conçu pour être flexible. Vous pouvez passer à une offre
+                            supérieure à tout moment pour débloquer de nouvelles fonctionnalités. Pour réduire votre
+                            offre, les changements seront appliqués à la date anniversaire de votre contrat mensuel.
+                        </p>
+                    </div>
+                </details>
+                <details
+                    class="group flex flex-col rounded-xl border border-[#e0e4dd] dark:border-[#2a3322] bg-white dark:bg-[#1e251a] shadow-sm hover:border-[#cbd0c7] dark:hover:border-[#3d4a32] transition-all">
+                    <summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+                        <p class="text-[#141712] dark:text-white text-base font-semibold">L'application
+                            fonctionne-t-elle sans connexion internet ?</p>
+                        <span
+                            class="material-symbols-outlined text-[#758268] group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0">
+                        <p class="text-[#4a5241] dark:text-[#c0c9b8] text-sm leading-relaxed">
+                            Oui, le mode hors-ligne est une fonctionnalité clé. Vous pouvez saisir vos observations,
+                            consulter vos cartes et gérer vos tâches au champ sans réseau. La synchronisation se fait
+                            automatiquement dès que votre appareil retrouve une connexion internet (Wi-Fi ou 4G).
+                        </p>
+                    </div>
+                </details>
+                <details
+                    class="group flex flex-col rounded-xl border border-[#e0e4dd] dark:border-[#2a3322] bg-white dark:bg-[#1e251a] shadow-sm hover:border-[#cbd0c7] dark:hover:border-[#3d4a32] transition-all">
+                    <summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+                        <p class="text-[#141712] dark:text-white text-base font-semibold">Quel accompagnement
+                            proposez-vous pour le démarrage ?</p>
+                        <span
+                            class="material-symbols-outlined text-[#758268] group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0">
+                        <p class="text-[#4a5241] dark:text-[#c0c9b8] text-sm leading-relaxed">
+                            Chaque nouvel abonnement inclut une session de formation de 2 heures en visio avec un expert
+                            produit. De plus, notre centre d'aide en ligne regorge de tutoriels vidéos et notre support
+                            chat est disponible 6j/7 pour répondre à vos questions techniques.
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </section>
+        <div class="w-full h-px bg-[#e0e4dd] dark:bg-[#2a3322] my-4"></div>
+        <section class="flex flex-col gap-10 w-full relative">
+            <svg class="absolute -right-8 -top-8 w-64 h-64 text-primary/5 -z-10 rotate-12 pointer-events-none"
+                fill="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 180V20M100 60C100 60 70 50 70 30C70 50 100 60 100 60ZM100 60C100 60 130 50 130 30C130 50 100 60 100 60ZM100 100C100 100 70 90 70 70C70 90 100 100 100 100ZM100 100C100 100 130 90 130 70C130 90 100 100 100 100ZM100 140C100 140 70 130 70 110C70 130 100 140 100 140ZM100 140C100 140 130 130 130 110C130 130 100 140 100 140Z"
+                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+            </svg>
+            <div class="flex flex-col gap-2 items-center text-center">
+                <span class="text-primary font-bold tracking-wider text-sm uppercase flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z">
+                        </path>
+                    </svg>
+                    Témoignages
+                </span>
+                <h2 class="text-[#141712] dark:text-white text-3xl font-bold leading-tight tracking-tight">Ils cultivent
+                    le futur avec nous</h2>
+                <p class="text-[#758268] dark:text-[#a0ac96] max-w-2xl">Découvrez comment DIGICOOPS transforme le
+                    quotidien des agriculteurs aux quatre coins de la France.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                    class="bg-white dark:bg-[#1e251a] p-8 rounded-2xl border border-[#f2f4f1] dark:border-[#2a3322] shadow-sm flex flex-col justify-between h-full gap-6">
+                    <div>
+                        <div class="flex gap-1 text-[#f59e0b] mb-4">
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                        </div>
+                        <p class="text-[#141712] dark:text-white text-lg font-medium leading-relaxed italic">
+                            "L'intégration avec mon semoir s'est faite en 5 minutes. J'ai économisé environ 15%
+                            d'intrants sur ma dernière campagne grâce à la modulation de dose proposée par l'app."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-[#f2f4f1] dark:border-[#2a3322] pt-4">
+                        <div class="size-12 rounded-full bg-gray-200 overflow-hidden">
+                            <img class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu762kZCxP_Lb7lQMnZ0Xg39vttWXMyaRCquNn6U7KVzdFeVd0_s7yyRG7zL_jqAWXKNng1_JGRD_0v9yr7kN6VUiNedPpnF5eRjkZ1E9JrvLK6kn3HswIZ3GNRwuuKrnR0wsdB8OUQQ0xwqx8LZOb5POPMVbz4BlZz3Aj_gZ5hhoDt0WIgg5TD0Gu5KbTkGUgBISFO1tG8DR8KiSK7jK-d7tmsmvxbPwSXjF7QzAadZXHma8uo8BG2W_TL7FQIYoOcdKG02_NhzYA" />
+                        </div>
+                        <div>
+                            <h4 class="text-[#141712] dark:text-white font-bold text-sm">Marc D.</h4>
+                            <p class="text-[#758268] text-xs">Céréalier en Beauce</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-[#1e251a] p-8 rounded-2xl border border-[#f2f4f1] dark:border-[#2a3322] shadow-sm flex flex-col justify-between h-full gap-6">
+                    <div>
+                        <div class="flex gap-1 text-[#f59e0b] mb-4">
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star_half</span>
+                        </div>
+                        <p class="text-[#141712] dark:text-white text-lg font-medium leading-relaxed italic">
+                            "Enfin un outil qui comprend nos contraintes. Le mode hors-ligne est un vrai plus quand je
+                            suis au fond des parcelles. L'équipe support est aussi très réactive."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-[#f2f4f1] dark:border-[#2a3322] pt-4">
+                        <div class="size-12 rounded-full bg-gray-200 overflow-hidden">
+                            <img class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUPIEswXGdwNXA12gHW7U3cvtkDe_5TKZXXOvzPr9CYHZgiUwCK0sXA2qkuPJhIHc9ULFSOSTKyw1Owa0jZouAqZuUw022a_286aUKHjfK4ucJJ_mfLR5U6teIN_xxzho20sa26es_XuzVRct35drbM6F6EtELQBGLj3cNBR2WQ8xigUm1rfXBjI4AuQn8fDHMiSnzv2v2y7fAKkzh-d_pBIo2Ci3iGDNWf32IEHhP2Kog3NnpZVDPOZ6LI46lSCvn9fjgnAqT3IMq" />
+                        </div>
+                        <div>
+                            <h4 class="text-[#141712] dark:text-white font-bold text-sm">Sophie L.</h4>
+                            <p class="text-[#758268] text-xs">Viticultrice, Bordeaux</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-[#1e251a] p-8 rounded-2xl border border-[#f2f4f1] dark:border-[#2a3322] shadow-sm flex flex-col justify-between h-full gap-6">
+                    <div>
+                        <div class="flex gap-1 text-[#f59e0b] mb-4">
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                            <span class="material-symbols-outlined text-[20px]">star</span>
+                        </div>
+                        <p class="text-[#141712] dark:text-white text-lg font-medium leading-relaxed italic">
+                            "DIGICOOPS nous a permis de centraliser toutes les données de la coopérative. La
+                            transparence des informations a renforcé la confiance avec nos adhérents."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-[#f2f4f1] dark:border-[#2a3322] pt-4">
+                        <div class="size-12 rounded-full bg-gray-200 overflow-hidden">
+                            <img class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0RLVXsWWTHfkH3CBAErQdzoqWucZZaNPj9ZzcUqBdBlffgGqKsiIzf3R5ehC_0Ld060ciq9gGw8iJ64WPsw2k6k8uxcnm3zSrZHKKigkHGPKdUtPitWV0xkYlnRkFJ3BSFRmclEqaa8oSYLtp0-E-eLgMKCIJ3i3sfukWPwDwbkNdMIvhV2tXxsVv_YhRKv6NFrPXzEbbETc0OPl65qmLlQJ-zniMe09F-yGTobvtpbx-cR7kyyDb55Gn3ZILLAj8oJI9SiUU65K_" />
+                        </div>
+                        <div>
+                            <h4 class="text-[#141712] dark:text-white font-bold text-sm">Pierre M.</h4>
+                            <p class="text-[#758268] text-xs">Directeur de Coopérative</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

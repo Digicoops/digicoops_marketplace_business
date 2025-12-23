@@ -1,0 +1,275 @@
+<app-shared-header></app-shared-header>
+
+<div class="relative w-full">
+    <div class="flex flex-col items-center justify-center min-h-[240px] bg-cover bg-center bg-no-repeat p-6 relative"
+        data-alt="Farmer looking at a field during sunset"
+        style='background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAXkXZX8StWoFoCHNBV-Ig2p6QHcG9l_PE9hkYVLBHtu7Ky6hpwgVbNBb6hkHOvDzh7bGqTHhRERtIoC6gSsaR4Ag0rlBrixIEj1318v-P6bQ_UVGeN-3Ff2S0U5DJ4tD1IdzOICGN5snr1RI9KD2X_e-OIlZK4IMFntNF-6OWNWry_PIlMZ56uJvIBkkM51olCMkxxNhCYWmtbxafsxZ4QlNPwSG_R_1N98s2_8iwYgNbdV01ZrmL_PgQmAopkNK4GcjLshVBTX9d");'>
+        <div class="relative z-10 flex flex-col gap-4 text-center max-w-[800px]">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-md border border-white/20">Ticket #{{
+                    ticket.id }}</span>
+                <span class="bg-amber-500/80 text-white text-xs px-2 py-1 rounded-md border border-amber-500/20">{{
+                    ticket.status }}</span>
+            </div>
+            <h1 class="text-white text-3xl md:text-4xl font-black leading-tight tracking-tight">
+                {{ ticket.subject }}
+            </h1>
+            <div class="flex items-center justify-center text-white/80 text-sm gap-2">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                <span>Ouvert le {{ ticket.date }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-[1200px] mx-auto px-4 md:px-6 py-8 md:py-12 relative isolate">
+    <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none translate-x-1/3 -translate-y-1/4">
+    </div>
+    <div
+        class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none -translate-x-1/4 translate-y-1/4">
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-8 flex flex-col gap-8">
+            <div class="flex flex-col gap-6">
+                <!-- Initial Message -->
+                <div class="flex items-start gap-4">
+                    <div
+                        class="size-10 rounded-full bg-gray-200 dark:bg-gray-700 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        <span class="material-symbols-outlined text-gray-500 dark:text-gray-400">person</span>
+                    </div>
+                    <div
+                        class="flex-1 bg-white dark:bg-[#1e251a] rounded-2xl rounded-tl-none p-6 shadow-sm border border-[#e0e4dd] dark:border-[#2a3322]">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-[#141712] dark:text-white">{{ ticket.contactName }} (Vous)</h3>
+                            <span class="text-xs text-[#758268]">14 Octobre 2023, 09:30</span>
+                        </div>
+                        <div class="prose prose-sm max-w-none text-[#141712] dark:text-gray-300">
+                            <p>Bonjour, j'ai remarqué que mes capteurs d'humidité dans la parcelle Nord ne se
+                                synchronisent plus avec l'application mobile depuis la mise à jour d'hier soir. J'ai
+                                essayé de redémarrer le boîtier central mais rien n'y fait. C'est assez urgent car nous
+                                avons prévu d'irriguer demain.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Reply -->
+                <div class="flex items-start gap-4 flex-row-reverse">
+                    <div
+                        class="size-10 rounded-full bg-primary/10 flex-shrink-0 flex items-center justify-center overflow-hidden text-primary border border-primary/20">
+                        <span class="material-symbols-outlined">support_agent</span>
+                    </div>
+                    <div
+                        class="flex-1 bg-primary/5 dark:bg-primary/10 rounded-2xl rounded-tr-none p-6 border border-primary/10">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-primary">Support DIGICOOPS</h3>
+                            <span class="text-xs text-[#758268]">14 Octobre 2023, 10:45</span>
+                        </div>
+                        <div class="prose prose-sm max-w-none text-[#141712] dark:text-gray-300">
+                            <p>Bonjour Monsieur {{ ticket.contactName }}, merci de nous avoir contactés. Je comprends
+                                l'urgence de la situation. Pourriez-vous me confirmer si les voyants du boîtier central
+                                clignotent en vert ou en rouge ? Cela nous aidera à diagnostiquer s'il s'agit d'un
+                                problème de connectivité réseau ou d'un défaut matériel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Reply -->
+                <div class="flex items-start gap-4">
+                    <div
+                        class="size-10 rounded-full bg-gray-200 dark:bg-gray-700 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        <span class="material-symbols-outlined text-gray-500 dark:text-gray-400">person</span>
+                    </div>
+                    <div
+                        class="flex-1 bg-white dark:bg-[#1e251a] rounded-2xl rounded-tl-none p-6 shadow-sm border border-[#e0e4dd] dark:border-[#2a3322]">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-[#141712] dark:text-white">{{ ticket.contactName }} (Vous)</h3>
+                            <span class="text-xs text-[#758268]">14 Octobre 2023, 11:15</span>
+                        </div>
+                        <div class="prose prose-sm max-w-none text-[#141712] dark:text-gray-300">
+                            <p>Les voyants clignotent en rouge rapide. J'ai pris une photo si cela peut aider.</p>
+                        </div>
+                        <div class="mt-4 flex gap-2">
+                            <div
+                                class="relative group cursor-pointer overflow-hidden rounded-lg border border-[#e0e4dd] dark:border-[#2a3322]">
+                                <div class="w-24 h-24 bg-gray-100 flex items-center justify-center text-gray-400">
+                                    <span class="material-symbols-outlined">image</span>
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="mt-8 bg-white dark:bg-[#1e251a] rounded-2xl shadow-lg border border-[#f2f4f1] dark:border-[#2a3322] p-6 md:p-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-[#8fa876]"></div>
+                <h2 class="text-xl font-bold text-[#141712] dark:text-white mb-6 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">reply</span>
+                    Répondre au ticket
+                </h2>
+                <form action="#" class="flex flex-col gap-6" (submit)="$event.preventDefault()">
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm font-semibold text-[#141712] dark:text-white" for="message">Votre
+                            message</label>
+                        <textarea
+                            class="rounded-lg border-[#e0e4dd] dark:border-[#2a3322] bg-[#f9fafb] dark:bg-[#262e21] text-sm focus:ring-primary focus:border-primary placeholder:text-gray-400 py-3 min-h-[150px]"
+                            id="message" placeholder="Écrivez votre réponse ici..."></textarea>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm font-semibold text-[#141712] dark:text-white">Pièces jointes</label>
+                        <div class="flex items-center gap-4">
+                            <label
+                                class="cursor-pointer inline-flex items-center gap-2 px-4 py-2 border border-[#e0e4dd] dark:border-[#2a3322] rounded-lg text-sm font-medium text-[#758268] hover:bg-[#f9fafb] dark:hover:bg-[#262e21] transition-colors">
+                                <span class="material-symbols-outlined text-lg">attach_file</span>
+                                <span>Ajouter un fichier</span>
+                                <input class="hidden" type="file" />
+                            </label>
+                            <span class="text-xs text-gray-400">Aucun fichier sélectionné</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 flex justify-end gap-4">
+                        <button routerLink="/tickets/list"
+                            class="px-6 py-2.5 rounded-lg border border-[#e0e4dd] dark:border-[#2a3322] text-[#758268] font-medium hover:bg-gray-50 dark:hover:bg-[#262e21] transition-colors"
+                            type="button">Fermer le ticket</button>
+                        <button
+                            class="bg-primary hover:bg-primary-dark text-white font-bold py-2.5 px-6 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                            <span>Envoyer la réponse</span>
+                            <span class="material-symbols-outlined text-sm">send</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col gap-6">
+            <div
+                class="bg-white dark:bg-[#1e251a] rounded-2xl p-6 border border-[#e0e4dd] dark:border-[#2a3322] shadow-sm">
+                <h3
+                    class="font-bold text-lg mb-4 text-[#141712] dark:text-white border-b border-[#f2f4f1] dark:border-[#2a3322] pb-2">
+                    Détails du ticket</h3>
+                <div class="flex flex-col gap-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-[#758268]">Statut</span>
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200">
+                            En attente support
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-[#758268]">Priorité</span>
+                        <span class="inline-flex items-center gap-1 text-sm font-medium text-red-600 dark:text-red-400">
+                            <span class="material-symbols-outlined text-base">priority_high</span>
+                            {{ ticket.priority }}
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-[#758268]">Service</span>
+                        <span class="text-sm font-medium text-[#141712] dark:text-white">Technique (Matériel)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-[#758268]">Dernière activité</span>
+                        <span class="text-sm font-medium text-[#141712] dark:text-white">Il y a 2h</span>
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-[#f2f4f1] dark:border-[#2a3322]">
+                    <h4 class="font-semibold text-sm mb-2 text-[#141712] dark:text-white">Documents liés</h4>
+                    <a class="flex items-center gap-3 p-2 hover:bg-[#f9fafb] dark:hover:bg-[#262e21] rounded-lg group transition-colors"
+                        href="#">
+                        <div class="size-8 rounded bg-red-50 text-red-500 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p
+                                class="text-sm font-medium text-[#141712] dark:text-white truncate group-hover:text-primary transition-colors">
+                                Manuel_Capteur_V2.pdf</p>
+                            <p class="text-xs text-[#758268]">1.2 MB</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-6 border border-primary/10">
+                <div class="flex items-center gap-3 mb-3 text-primary">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <h3 class="font-bold text-lg">Astuce Pro</h3>
+                </div>
+                <p class="text-sm text-[#141712] dark:text-gray-300 mb-4">
+                    Saviez-vous que vous pouvez réinitialiser vos capteurs à distance via l'application mobile ?
+                </p>
+                <a class="text-sm font-bold text-primary hover:underline inline-flex items-center gap-1" href="#">
+                    Voir le tutoriel
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+
+            <div
+                class="bg-white dark:bg-[#1e251a] rounded-2xl p-6 border border-[#e0e4dd] dark:border-[#2a3322] shadow-sm overflow-hidden relative">
+                <svg class="absolute bottom-0 right-0 w-24 h-24 text-[#e0e4dd] dark:text-[#2a3322] -mb-4 -mr-4 opacity-50"
+                    fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z">
+                    </path>
+                </svg>
+                <h3 class="font-bold text-lg mb-4 text-[#141712] dark:text-white">Autres tickets récents</h3>
+                <div class="flex flex-col gap-3">
+                    <a class="block p-3 rounded-lg border border-[#f2f4f1] dark:border-[#2a3322] hover:border-primary/30 hover:bg-primary/5 transition-all group"
+                        href="#">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-xs font-medium text-[#758268]">#38102</span>
+                            <span
+                                class="text-xs px-1.5 py-0.5 rounded bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200">Résolu</span>
+                        </div>
+                        <p class="text-sm font-medium text-[#141712] dark:text-white group-hover:text-primary truncate">
+                            Facture Octobre manquante</p>
+                    </a>
+                    <a class="block p-3 rounded-lg border border-[#f2f4f1] dark:border-[#2a3322] hover:border-primary/30 hover:bg-primary/5 transition-all group"
+                        href="#">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-xs font-medium text-[#758268]">#37955</span>
+                            <span
+                                class="text-xs px-1.5 py-0.5 rounded bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200">Résolu</span>
+                        </div>
+                        <p class="text-sm font-medium text-[#141712] dark:text-white group-hover:text-primary truncate">
+                            Question formation agronome</p>
+                    </a>
+                </div>
+                <div class="mt-4 text-center">
+                    <a class="text-sm font-medium text-primary hover:text-primary-dark hover:underline" href="#">Voir
+                        tous mes tickets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-full bg-primary py-12 px-6 relative overflow-hidden">
+    <svg class="absolute inset-0 w-full h-full text-white pointer-events-none opacity-5"
+        xmlns="http://www.w3.org/2000/svg">
+        <pattern height="40" id="pattern-circles" patternUnits="userSpaceOnUse" width="40" x="0" y="0">
+            <circle cx="20" cy="20" fill="currentColor" r="2"></circle>
+        </pattern>
+        <rect fill="url(#pattern-circles)" height="100%" width="100%" x="0" y="0"></rect>
+        <path d="M0 20 L50 20 M70 20 L120 20" opacity="0.4" stroke="currentColor" stroke-dasharray="10 20"
+            stroke-width="8" transform="rotate(-45) scale(4)"></path>
+    </svg>
+    <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+        <div class="flex flex-col gap-2 text-center md:text-left">
+            <h2 class="text-white text-xl md:text-2xl font-bold">Besoin d'une assistance immédiate ?</h2>
+            <p class="text-white/80 text-sm md:text-base">Notre chat en direct est disponible pour résoudre vos
+                problèmes rapidement.</p>
+        </div>
+        <div class="flex gap-4 flex-col sm:flex-row">
+            <button
+                class="bg-white text-primary hover:bg-gray-100 transition-colors font-bold py-2.5 px-6 rounded-lg shadow-lg flex items-center gap-2 text-sm">
+                <span class="material-symbols-outlined text-lg">chat</span>
+                Lancer le chat
+            </button>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

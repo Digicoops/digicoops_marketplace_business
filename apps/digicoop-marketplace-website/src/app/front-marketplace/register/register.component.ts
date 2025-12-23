@@ -120,7 +120,7 @@ export class RegisterComponent implements OnInit {
       } else {
         this.errorMessage = 'Veuillez remplir tous les champs obligatoires et accepter les conditions.';
       }
-      return;
+      return; 
     }
 
     this.isLoading = true;
